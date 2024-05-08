@@ -12,13 +12,13 @@ Guia de actividades:
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/martingaidoo/PPAI-2024-backend
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd PPAI-2024-backend
 ```
 
 Install dependencies
@@ -30,7 +30,7 @@ Install dependencies
 Start the server
 
 ```bash
-  npx ts-node app.ts
+  npm run start
 ```
 
 
