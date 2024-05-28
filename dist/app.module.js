@@ -17,13 +17,13 @@ const provincia_module_1 = require("./Modules/provincia/provincia.module");
 const pais_module_1 = require("./Modules/pais/pais.module");
 const tipo_rese_a_module_1 = require("./Modules/tipo-rese\u00F1a/tipo-rese\u00F1a.module");
 const rese_a_module_1 = require("./Modules/rese\u00F1a/rese\u00F1a.module");
-const region_vitivinico_module_1 = require("./Modules/region-vitivinico/region-vitivinico.module");
+const region_vitivinicola_module_1 = require("./Modules/region-vitivinicola/region-vitivinicola.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [generar_reporte_ranking_vinos_module_1.GenerarReporteRankingVinosModule, vino_module_1.VinoModule, provincia_module_1.ProvinciaModule, pais_module_1.PaisModule, tipo_rese_a_module_1.TipoReseñaModule, rese_a_module_1.ReseñaModule, region_vitivinico_module_1.RegionVitivinicoModule,],
+        imports: [generar_reporte_ranking_vinos_module_1.GenerarReporteRankingVinosModule, vino_module_1.VinoModule, provincia_module_1.ProvinciaModule, pais_module_1.PaisModule, tipo_rese_a_module_1.TipoReseñaModule, rese_a_module_1.ReseñaModule, region_vitivinicola_module_1.RegionVitivinicolaModule,],
         controllers: [app_controller_1.AppController, generar_reporte_ranking_vinos_controller_1.GenerarReporteRankingVinosController],
         providers: [app_service_1.AppService],
     })

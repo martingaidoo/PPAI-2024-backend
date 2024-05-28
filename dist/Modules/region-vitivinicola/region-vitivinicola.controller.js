@@ -6,12 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegionVitivinicoController = void 0;
+exports.RegionVitivinicolaController = void 0;
 const common_1 = require("@nestjs/common");
-let RegionVitivinicoController = class RegionVitivinicoController {
+let RegionVitivinicolaController = class RegionVitivinicolaController {
 };
-exports.RegionVitivinicoController = RegionVitivinicoController;
-exports.RegionVitivinicoController = RegionVitivinicoController = __decorate([
-    (0, common_1.Controller)('region-vitivinico')
-], RegionVitivinicoController);
-//# sourceMappingURL=region-vitivinico.controller.js.map
+exports.RegionVitivinicolaController = RegionVitivinicolaController;
+exports.RegionVitivinicolaController = RegionVitivinicolaController = __decorate([
+    (0, common_1.Controller)('region-vitivinicola')
+], RegionVitivinicolaController);
+//# sourceMappingURL=region-vitivinicola.controller.js.map

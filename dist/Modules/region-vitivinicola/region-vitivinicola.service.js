@@ -6,17 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegionVitivinicoModule = void 0;
+exports.RegionVitivinicolaService = void 0;
 const common_1 = require("@nestjs/common");
-const region_vitivinico_controller_1 = require("./region-vitivinico.controller");
-const region_vitivinico_service_1 = require("./region-vitivinico.service");
-let RegionVitivinicoModule = class RegionVitivinicoModule {
+let RegionVitivinicolaService = class RegionVitivinicolaService {
 };
-exports.RegionVitivinicoModule = RegionVitivinicoModule;
-exports.RegionVitivinicoModule = RegionVitivinicoModule = __decorate([
-    (0, common_1.Module)({
-        controllers: [region_vitivinico_controller_1.RegionVitivinicoController],
-        providers: [region_vitivinico_service_1.RegionVitivinicoService]
-    })
-], RegionVitivinicoModule);
-//# sourceMappingURL=region-vitivinico.module.js.map
+exports.RegionVitivinicolaService = RegionVitivinicolaService;
+exports.RegionVitivinicolaService = RegionVitivinicolaService = __decorate([
+    (0, common_1.Injectable)()
+], RegionVitivinicolaService);
+//# sourceMappingURL=region-vitivinicola.service.js.map
