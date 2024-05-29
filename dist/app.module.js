@@ -13,7 +13,6 @@ const entities_1 = require("./entities");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const generar_reporte_ranking_vinos_module_1 = require("./Modules/generar-reporte-ranking-vinos/generar-reporte-ranking-vinos.module");
-const generar_reporte_ranking_vinos_controller_1 = require("./Modules/generar-reporte-ranking-vinos/generar-reporte-ranking-vinos.controller");
 const vino_module_1 = require("./Modules/vino/vino.module");
 const provincia_module_1 = require("./Modules/provincia/provincia.module");
 const pais_module_1 = require("./Modules/pais/pais.module");
@@ -21,7 +20,6 @@ const resena_module_1 = require("./Modules/resena/resena.module");
 const region_vitivinicola_module_1 = require("./Modules/region-vitivinicola/region-vitivinicola.module");
 const varietal_module_1 = require("./Modules/varietal/varietal.module");
 const bodega_module_1 = require("./Modules/bodega/bodega.module");
-const enofilo_module_1 = require("./Modules/enofilo/enofilo.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,8 +30,8 @@ exports.AppModule = AppModule = __decorate([
                 database: 'bonvino.db',
                 entities: entities_1.entities,
                 synchronize: true,
-            }), vino_module_1.VinoModule, provincia_module_1.ProvinciaModule, pais_module_1.PaisModule, resena_module_1.ResenaModule, region_vitivinicola_module_1.RegionVitivinicolaModule, varietal_module_1.VarietalModule, bodega_module_1.BodegaModule, enofilo_module_1.EnofiloModule],
-        controllers: [app_controller_1.AppController, generar_reporte_ranking_vinos_controller_1.GenerarReporteRankingVinosController],
+            }), vino_module_1.VinoModule, provincia_module_1.ProvinciaModule, pais_module_1.PaisModule, resena_module_1.ResenaModule, region_vitivinicola_module_1.RegionVitivinicolaModule, varietal_module_1.VarietalModule, bodega_module_1.BodegaModule, generar_reporte_ranking_vinos_module_1.GenerarReporteRankingVinosModule],
+        controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
 ], AppModule);

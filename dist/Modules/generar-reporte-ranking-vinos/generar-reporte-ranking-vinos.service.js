@@ -9,6 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenerarReporteRankingVinosService = void 0;
 const common_1 = require("@nestjs/common");
 let GenerarReporteRankingVinosService = class GenerarReporteRankingVinosService {
+    opcionGenerarReporteRankingDeVinos() {
+        return { "mensaje": "Generar reporte ranking de vinos" };
+    }
 };
 exports.GenerarReporteRankingVinosService = GenerarReporteRankingVinosService;
 exports.GenerarReporteRankingVinosService = GenerarReporteRankingVinosService = __decorate([

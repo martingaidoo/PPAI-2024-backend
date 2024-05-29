@@ -4,7 +4,6 @@ import { entities } from './entities';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GenerarReporteRankingVinosModule } from './Modules/generar-reporte-ranking-vinos/generar-reporte-ranking-vinos.module';
-import { GenerarReporteRankingVinosController } from './Modules/generar-reporte-ranking-vinos/generar-reporte-ranking-vinos.controller';
 import { VinoModule } from './Modules/vino/vino.module';
 import { ProvinciaModule } from './Modules/provincia/provincia.module';
 import { PaisModule } from './Modules/pais/pais.module';
@@ -19,8 +18,8 @@ import { BodegaModule } from './Modules/bodega/bodega.module';
     database:'bonvino.db',
     entities: entities,
     synchronize:true,
-  }), VinoModule, ProvinciaModule, PaisModule, ResenaModule, RegionVitivinicolaModule, VarietalModule, BodegaModule],
-  controllers: [AppController, GenerarReporteRankingVinosController],
+  }), VinoModule, ProvinciaModule, PaisModule, ResenaModule, RegionVitivinicolaModule, VarietalModule, BodegaModule, GenerarReporteRankingVinosModule],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

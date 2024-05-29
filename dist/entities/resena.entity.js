@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResenaEntity = void 0;
 const typeorm_1 = require("typeorm");
 const vino_entity_1 = require("./vino.entity");
-const enofilo_entity_1 = require("./enofilo.entity");
 let ResenaEntity = class ResenaEntity extends typeorm_1.BaseEntity {
 };
 exports.ResenaEntity = ResenaEntity;
@@ -40,10 +39,6 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => vino_entity_1.VinoEntity, vino => vino.resenas),
     __metadata("design:type", vino_entity_1.VinoEntity)
 ], ResenaEntity.prototype, "vino", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)(() => enofilo_entity_1.EnofiloEntity, enofilo => enofilo.resenas),
-    __metadata("design:type", enofilo_entity_1.EnofiloEntity)
-], ResenaEntity.prototype, "enofilo", void 0);
 exports.ResenaEntity = ResenaEntity = __decorate([
     (0, typeorm_1.Entity)()
 ], ResenaEntity);
