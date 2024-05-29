@@ -1,5 +1,4 @@
 import { Controller, Body, Post, Get, Put ,Param} from '@nestjs/common';
-import { DeepPartial } from 'typeorm';
 import { BodegaService } from './bodega.service';
 import { BodegaEntity } from 'src/entities/bodega.entity';
 

@@ -6,4 +6,4 @@ import { VinoEntity } from "./vino.entity";
 import { ResenaEntity } from "./resena.entity";
 import { ProvinciaEntity } from "./provincia.entity";
 import { VarietalEntity } from "./varietal.entity";
-export declare const entities: (typeof PaisEntity | typeof ProvinciaEntity | typeof BodegaEntity | typeof EnofiloEntity | typeof RegionVitivinicolaEntity | typeof VinoEntity | typeof ResenaEntity | typeof VarietalEntity)[];
+export declare const entities: (typeof VarietalEntity | typeof VinoEntity | typeof EnofiloEntity | typeof ResenaEntity | typeof BodegaEntity | typeof RegionVitivinicolaEntity | typeof ProvinciaEntity | typeof PaisEntity)[];

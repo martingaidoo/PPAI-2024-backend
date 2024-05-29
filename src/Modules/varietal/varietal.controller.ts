@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 import { VarietalService } from './varietal.service';
 import { VarietalEntity } from 'src/entities/varietal.entity';
 
-@Controller('varietals')
+@Controller('varietales')
 export class VarietalController {
   constructor(private readonly varietalService: VarietalService) {}
 

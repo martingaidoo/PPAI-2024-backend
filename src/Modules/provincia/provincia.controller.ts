@@ -2,7 +2,7 @@ import { Controller, Body, Post, Get, Put ,Param} from '@nestjs/common';
 import { ProvinciaService } from './provincia.service';
 import { ProvinciaEntity } from 'src/entities/provincia.entity';
 
-@Controller('provincia')
+@Controller('provincias')
 export class ProvinciaController {
     constructor(private readonly provinciaService: ProvinciaService) {}
     @Get()

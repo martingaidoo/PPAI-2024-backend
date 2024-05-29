@@ -42,7 +42,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], VarietalController.prototype, "create", null);
 exports.VarietalController = VarietalController = __decorate([
-    (0, common_1.Controller)('varietals'),
+    (0, common_1.Controller)('varietales'),
     __metadata("design:paramtypes", [varietal_service_1.VarietalService])
 ], VarietalController);
 //# sourceMappingURL=varietal.controller.js.map

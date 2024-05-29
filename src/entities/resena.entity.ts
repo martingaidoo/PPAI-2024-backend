@@ -1,6 +1,5 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { VinoEntity } from './vino.entity';
-import { EnofiloEntity } from './enofilo.entity';
 
 @Entity()
 export class ResenaEntity extends BaseEntity{
@@ -22,6 +21,4 @@ export class ResenaEntity extends BaseEntity{
   @ManyToOne(() => VinoEntity, vino => vino.resenas)
   vino: VinoEntity;
 
-  @ManyToOne(() => EnofiloEntity, enofilo => enofilo.resenas)
-  enofilo: EnofiloEntity;
 }

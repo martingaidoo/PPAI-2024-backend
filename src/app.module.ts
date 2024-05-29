@@ -11,6 +11,7 @@ import { PaisModule } from './Modules/pais/pais.module';
 import { ResenaModule } from './Modules/resena/resena.module';
 import { RegionVitivinicolaModule } from './Modules/region-vitivinicola/region-vitivinicola.module';
 import { VarietalModule } from './Modules/varietal/varietal.module';
+import { BodegaModule } from './Modules/bodega/bodega.module';
 
 @Module({
   imports: [GenerarReporteRankingVinosModule,TypeOrmModule.forRoot({
@@ -18,7 +19,7 @@ import { VarietalModule } from './Modules/varietal/varietal.module';
     database:'bonvino.db',
     entities: entities,
     synchronize:true,
-  }), VinoModule, ProvinciaModule, PaisModule, ResenaModule, RegionVitivinicolaModule, VarietalModule,],
+  }), VinoModule, ProvinciaModule, PaisModule, ResenaModule, RegionVitivinicolaModule, VarietalModule, BodegaModule],
   controllers: [AppController, GenerarReporteRankingVinosController],
   providers: [AppService],
 })

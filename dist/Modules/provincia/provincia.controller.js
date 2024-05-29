@@ -42,7 +42,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProvinciaController.prototype, "create", null);
 exports.ProvinciaController = ProvinciaController = __decorate([
-    (0, common_1.Controller)('provincia'),
+    (0, common_1.Controller)('provincias'),
     __metadata("design:paramtypes", [provincia_service_1.ProvinciaService])
 ], ProvinciaController);
 //# sourceMappingURL=provincia.controller.js.map
