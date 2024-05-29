@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegionVitivinicolaModule = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
+const regionVitivinicola_entity_1 = require("../../entities/regionVitivinicola.entity");
 const region_vitivinicola_controller_1 = require("./region-vitivinicola.controller");
 const region_vitivinicola_service_1 = require("./region-vitivinicola.service");
 let RegionVitivinicolaModule = class RegionVitivinicolaModule {
@@ -15,8 +17,9 @@ let RegionVitivinicolaModule = class RegionVitivinicolaModule {
 exports.RegionVitivinicolaModule = RegionVitivinicolaModule;
 exports.RegionVitivinicolaModule = RegionVitivinicolaModule = __decorate([
     (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([regionVitivinicola_entity_1.RegionVitivinicolaEntity])],
         controllers: [region_vitivinicola_controller_1.RegionVitivinicolaController],
-        providers: [region_vitivinicola_service_1.RegionVitivinicolaService]
+        providers: [region_vitivinicola_service_1.RegionVitivinicolaService],
     })
 ], RegionVitivinicolaModule);
 //# sourceMappingURL=region-vitivinicola.module.js.map

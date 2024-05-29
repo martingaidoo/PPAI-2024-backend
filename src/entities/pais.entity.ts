@@ -1,6 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity} from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import { ProvinciaEntity } from './provincia.entity';
 
-@Entity ('pais')
-export class PaisEntity extends BaseEntity {
+@Entity()
+export class PaisEntity extends BaseEntity{
+  @PrimaryGeneratedColumn()
+  id: number;
 
+  @Column({ length: 100 })
+  nombre: string;
+
+  @OneToMany(() => ProvinciaEntity, provincia => provincia.pais)
+  provincias: ProvinciaEntity[];
 }

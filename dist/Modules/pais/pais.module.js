@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaisModule = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
+const pais_entity_1 = require("../../entities/pais.entity");
 const pais_controller_1 = require("./pais.controller");
 const pais_service_1 = require("./pais.service");
 let PaisModule = class PaisModule {
@@ -15,8 +17,9 @@ let PaisModule = class PaisModule {
 exports.PaisModule = PaisModule;
 exports.PaisModule = PaisModule = __decorate([
     (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([pais_entity_1.PaisEntity])],
         controllers: [pais_controller_1.PaisController],
-        providers: [pais_service_1.PaisService]
+        providers: [pais_service_1.PaisService],
     })
 ], PaisModule);
 //# sourceMappingURL=pais.module.js.map

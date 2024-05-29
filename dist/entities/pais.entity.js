@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaisEntity = void 0;
 const typeorm_1 = require("typeorm");
+const provincia_entity_1 = require("./provincia.entity");
 let PaisEntity = class PaisEntity extends typeorm_1.BaseEntity {
 };
 exports.PaisEntity = PaisEntity;
@@ -19,10 +20,14 @@ __decorate([
     __metadata("design:type", Number)
 ], PaisEntity.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ length: 100 }),
     __metadata("design:type", String)
-], PaisEntity.prototype, "name", void 0);
+], PaisEntity.prototype, "nombre", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => provincia_entity_1.ProvinciaEntity, provincia => provincia.pais),
+    __metadata("design:type", Array)
+], PaisEntity.prototype, "provincias", void 0);
 exports.PaisEntity = PaisEntity = __decorate([
-    (0, typeorm_1.Entity)('pais')
+    (0, typeorm_1.Entity)()
 ], PaisEntity);
 //# sourceMappingURL=pais.entity.js.map

@@ -1,1 +1,1 @@
-nest generate module Vino && nest generate controller Vino --no-spec && nest generate service Vino --no-spec
+nest generate module Varietal && nest generate controller Varietal --no-spec && nest generate service Varietal --no-spec

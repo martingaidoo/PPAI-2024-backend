@@ -1,17 +1,19 @@
-import { Controller, Body, Post, Get, Put ,Param} from '@nestjs/common';
+// pais.controller.ts
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { PaisService } from './pais.service';
 import { PaisEntity } from 'src/entities/pais.entity';
-import { DeepPartial } from 'typeorm';
 
-@Controller('pais')
+@Controller('paises')
 export class PaisController {
-    constructor(private service: PaisService){}
-    //@Post()
-    //async createPais(@Body() pais: DeepPartial<PaisEntity>){
-    //    return await this.service.createPais(pais);
-    //}
-    @Get()
-    async findPais(): Promise<PaisEntity[]>{
-        return await this.service.findPais();
-    }
+  constructor(private readonly paisService: PaisService) {}
+
+  @Get()
+  findAll(): Promise<PaisEntity[]> {
+    return this.paisService.findAll();
+  }
+
+  @Post()
+  create(@Body() pais: PaisEntity): Promise<PaisEntity> {
+    return this.paisService.create(pais);
+  }
 }

@@ -10,11 +10,14 @@ exports.ProvinciaModule = void 0;
 const common_1 = require("@nestjs/common");
 const provincia_controller_1 = require("./provincia.controller");
 const provincia_service_1 = require("./provincia.service");
+const provincia_entity_1 = require("../../entities/provincia.entity");
+const typeorm_1 = require("@nestjs/typeorm");
 let ProvinciaModule = class ProvinciaModule {
 };
 exports.ProvinciaModule = ProvinciaModule;
 exports.ProvinciaModule = ProvinciaModule = __decorate([
     (0, common_1.Module)({
+        imports: [typeorm_1.TypeOrmModule.forFeature([provincia_entity_1.ProvinciaEntity])],
         controllers: [provincia_controller_1.ProvinciaController],
         providers: [provincia_service_1.ProvinciaService]
     })

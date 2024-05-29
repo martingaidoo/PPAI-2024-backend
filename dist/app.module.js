@@ -17,9 +17,9 @@ const generar_reporte_ranking_vinos_controller_1 = require("./Modules/generar-re
 const vino_module_1 = require("./Modules/vino/vino.module");
 const provincia_module_1 = require("./Modules/provincia/provincia.module");
 const pais_module_1 = require("./Modules/pais/pais.module");
-const tipo_rese_a_module_1 = require("./Modules/tipo-rese\u00F1a/tipo-rese\u00F1a.module");
-const rese_a_module_1 = require("./Modules/rese\u00F1a/rese\u00F1a.module");
+const resena_module_1 = require("./Modules/resena/resena.module");
 const region_vitivinicola_module_1 = require("./Modules/region-vitivinicola/region-vitivinicola.module");
+const varietal_module_1 = require("./Modules/varietal/varietal.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -30,7 +30,7 @@ exports.AppModule = AppModule = __decorate([
                 database: 'bonvino.db',
                 entities: entities_1.entities,
                 synchronize: true,
-            }), vino_module_1.VinoModule, provincia_module_1.ProvinciaModule, pais_module_1.PaisModule, tipo_rese_a_module_1.TipoReseñaModule, rese_a_module_1.ReseñaModule, region_vitivinicola_module_1.RegionVitivinicolaModule,],
+            }), vino_module_1.VinoModule, provincia_module_1.ProvinciaModule, pais_module_1.PaisModule, resena_module_1.ResenaModule, region_vitivinicola_module_1.RegionVitivinicolaModule, varietal_module_1.VarietalModule,],
         controllers: [app_controller_1.AppController, generar_reporte_ranking_vinos_controller_1.GenerarReporteRankingVinosController],
         providers: [app_service_1.AppService],
     })

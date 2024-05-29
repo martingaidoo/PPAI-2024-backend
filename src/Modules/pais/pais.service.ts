@@ -1,23 +1,20 @@
-import { HttpException, Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { DeepPartial, Repository} from 'typeorm';
-import { PaisEntity } from '../../entities/pais.entity';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { PaisEntity } from 'src/entities/pais.entity';
 
 @Injectable()
 export class PaisService {
-    repository = PaisEntity;
+  constructor(
+    @InjectRepository(PaisEntity)
+    private readonly paisRepository: Repository<PaisEntity>,
+  ) {}
 
-//    async createPais(pais: DeepPartial<PaisEntity>){
-//        try{
-//            return await this.repository.save(pais);
-//        }catch(error){
-//            throw new HttpException('Create pais error',500);
-//        }
-//    }
-    async findPais(){
-        try {
-            return await this.repository.find();
-        } catch (error) {
-            throw new HttpException('Find Pais type error', 500)
-        }   
-    }
+  findAll(): Promise<PaisEntity[]> {
+    return this.paisRepository.find();
+  }
+
+  create(pais: PaisEntity): Promise<PaisEntity> {
+    return this.paisRepository.save(pais);
+  }
 }

@@ -1,5 +1,7 @@
-import { BaseEntity } from "typeorm";
+import { BaseEntity } from 'typeorm';
+import { ProvinciaEntity } from './provincia.entity';
 export declare class PaisEntity extends BaseEntity {
     id: number;
-    name: string;
+    nombre: string;
+    provincias: ProvinciaEntity[];
 }
