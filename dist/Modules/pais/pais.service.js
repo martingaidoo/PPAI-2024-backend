@@ -8,7 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PaisService = void 0;
 const common_1 = require("@nestjs/common");
+const pais_entity_1 = require("../../entities/pais.entity");
 let PaisService = class PaisService {
+    constructor() {
+        this.repository = pais_entity_1.PaisEntity;
+    }
+    async findPais() {
+        try {
+            return await this.repository.find();
+        }
+        catch (error) {
+            throw new common_1.HttpException('Find Pais type error', 500);
+        }
+    }
 };
 exports.PaisService = PaisService;
 exports.PaisService = PaisService = __decorate([

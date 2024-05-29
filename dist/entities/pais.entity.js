@@ -9,26 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PaisController = void 0;
-const common_1 = require("@nestjs/common");
-const pais_service_1 = require("./pais.service");
-let PaisController = class PaisController {
-    constructor(service) {
-        this.service = service;
-    }
-    async findPais() {
-        return await this.service.findPais();
-    }
+exports.PaisEntity = void 0;
+const typeorm_1 = require("typeorm");
+let PaisEntity = class PaisEntity extends typeorm_1.BaseEntity {
 };
-exports.PaisController = PaisController;
+exports.PaisEntity = PaisEntity;
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], PaisController.prototype, "findPais", null);
-exports.PaisController = PaisController = __decorate([
-    (0, common_1.Controller)('pais'),
-    __metadata("design:paramtypes", [pais_service_1.PaisService])
-], PaisController);
-//# sourceMappingURL=pais.controller.js.map
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], PaisEntity.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], PaisEntity.prototype, "name", void 0);
+exports.PaisEntity = PaisEntity = __decorate([
+    (0, typeorm_1.Entity)('pais')
+], PaisEntity);
+//# sourceMappingURL=pais.entity.js.map
