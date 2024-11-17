@@ -1,0 +1,75 @@
+# Directorios generados por el compilador
+target/
+bin/
+build/
+
+# Archivos temporales del sistema operativo
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de IDEs y herramientas de desarrollo
+*.class
+*.war
+*.ear
+*.jar
+
+# Archivos generados por Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# Archivos de configuración de IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Archivos de configuración de NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Archivos de configuración de Eclipse/STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Archivos de configuración de Visual Studio Code
+.vscode/
+
+# Archivos específicos de Spring Boot
+HELP.md
+*.db
+*.h2.db
+*.mv.db
+
+# Excluir bases de datos locales
+*.sql
+*.sqlite
+*.p12
+*.jks
+
+# Archivos sensibles y de configuración local
+.env
+*.env
+*.key
+*.pem
+
+# Archivos de test temporales
+/test-output/
+reports/
+
+# Asegurarse de que ciertos directorios específicos no se ignoren
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
