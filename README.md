@@ -38,9 +38,21 @@ Este proyecto utiliza **Spring Boot** con **Maven** como herramienta de construc
 
 ---
 
-## Configuración del proyecto
+## Authors
 
-### Clonar el repositorio
-```bash
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DEL_PROYECTO>
+- [@Laureano-GR](https://github.com/Laureano-GR)
+
+- [@JuanToranzo](https://github.com/JuanToranzo)
+
+- [@Zaca-123](https://github.com/Zaca-123)
+
+- [@LlancoMG](https://github.com/LlancoMG)
+
+- [@MartinCesano](https://github.com/MartinCesano)
+
+- [@valechiapero](https://github.com/valechiapero)
+
+- [@fedeeperon](https://github.com/fedeeperon)
+
+- [@martingaidoo](https://github.com/martingaidoo)
+
