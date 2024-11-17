@@ -1,1 +1,0 @@
-nest generate module Varietal && nest generate controller Varietal --no-spec && nest generate service Varietal --no-spec
