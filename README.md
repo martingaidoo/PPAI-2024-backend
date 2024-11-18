@@ -38,7 +38,7 @@ Este proyecto utiliza **Spring Boot** con **Maven** como herramienta de construc
 
 ---
 
-## Authors
+## Autores
 
 - [@Laureano-GR](https://github.com/Laureano-GR)
 
