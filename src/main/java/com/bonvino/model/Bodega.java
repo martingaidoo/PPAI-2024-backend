@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
+import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @AllArgsConstructor
@@ -20,7 +22,17 @@ public class Bodega {
     private String periodoActualizacion;
     private String coordenadasUbicacion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_vitivinicola_id", nullable = false) // Clave foránea
+    @OneToOne(targetEntity = RegionVitivinicola.class, fetch = FetchType.LAZY)
     private RegionVitivinicola regionVitivinicola;
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public List<String> obtenerUbicacion() {
+        List<String> datosUbicacion = new ArrayList<String>();
+        datosUbicacion.add(regionVitivinicola.getNombre());
+        datosUbicacion.addAll(regionVitivinicola.obtenerProvincia());
+        return datosUbicacion;
+    }
 }

@@ -1,11 +1,18 @@
 package com.bonvino.model;
 
+import java.util.Date;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
-import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,24 +24,23 @@ public class Vino {
     private Long id;
     private Date añada;
     private String nombre;
-    private String calificacionGeneral;
+    private float calificacionGeneral;
     private float precioARS;
 
-   
     @OneToMany(targetEntity = Resena.class, fetch = FetchType.LAZY, mappedBy = "vino")
     private List<Resena> resenas;
 
     @OneToMany(targetEntity = Varietal.class, fetch = FetchType.LAZY, mappedBy = "vino")
-    private List<Varietal> varital;
+    private List<Varietal> varietal;
 
     @ManyToOne(targetEntity = Bodega.class, fetch = FetchType.LAZY)
     private Bodega bodega;
 
-
     public Boolean tieneResenaEnFecha(Date fechaInicio, Date fechaFin) {
-        for (Resena resena_i : resenas) { // esta variable reseña no tiene sentido, seguramente este vacia, debe buscar todas las reseñas del vino
+        for (Resena resena_i : resenas) { // esta variable reseña no tiene sentido, seguramente este vacia, debe buscar
+                                          // todas las reseñas del vino
             if (resena_i.estaEnPeriodo(fechaInicio, fechaFin)) {
-                if(resena_i.sosDeSommelier()){
+                if (resena_i.sosDeSommelier()) {
                     return true;
                 }
             }
@@ -54,13 +60,20 @@ public class Vino {
         return contadorSommelier > 0 ? puntaje / contadorSommelier : 0;
     }
 
-    public String obtenerBodega() {
-        return this.bodega.getNombre();
+    public String[] obtenerBodega() {
+        String ubicacion = String.join(", ", bodega.obtenerUbicacion());
+        String[] datosBodega = { bodega.getNombre(), ubicacion };
+        return datosBodega;
     }
 
     public String[] obtenerVarietal() {
-        // method implementation
-        return new String[0];
+        String[] descripciones = new String[varietal.size()];
+        int i = 0;
+        for (Varietal varietal_i : varietal) {
+            descripciones[i] = varietal_i.getDescripcion();
+            i++;
+        }
+        return descripciones;
     }
 
     public float getPrecioARS() {
@@ -79,17 +92,18 @@ public class Vino {
         this.nombre = nombre;
     }
 
-    public String getCalificacionGeneral() {
+    public float getCalificacionGeneral() {
         return calificacionGeneral;
     }
 
-    public void setCalificacionGeneral(String calificacionGeneral) {
+    public void setCalificacionGeneral(float calificacionGeneral) {
         this.calificacionGeneral = calificacionGeneral;
     }
 
     public void setVarietal(List<Varietal> varital) {
-        this.varital = varital;
+        this.varietal = varital;
     }
+
     public void setResenas(List<Resena> resenas) {
         this.resenas = resenas;
     }

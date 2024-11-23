@@ -17,9 +17,14 @@ public class Provincia {
     private String nombre;
     @ManyToOne(targetEntity = Pais.class)
     private Pais pais;
-    @OneToMany(targetEntity = RegionVitivinicola.class, fetch = FetchType.LAZY, mappedBy = "provincia") // Espera
-                                                                                                        // solicitud
-                                                                                                        // para traer
-    // las regiones
+    @OneToMany(targetEntity = RegionVitivinicola.class, fetch = FetchType.LAZY, mappedBy = "provincia")
     private List<RegionVitivinicola> regionesVitivinicolas;
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public String obtenerPais() {
+        return this.pais.getNombre();
+    }
 }

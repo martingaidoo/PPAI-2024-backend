@@ -18,4 +18,7 @@ public class Pais {
     @OneToMany(targetEntity = Provincia.class, fetch = FetchType.LAZY, mappedBy = "pais")
     private List<Provincia> provincias;
 
+    public String getNombre() {
+        return this.nombre;
+    }
 }
