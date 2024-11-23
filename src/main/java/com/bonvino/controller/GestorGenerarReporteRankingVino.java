@@ -95,7 +95,8 @@ public class GestorGenerarReporteRankingVino {
             Object[] calificacionesPromedioVino = this.calcularCalificacionesPromedio();
             this.vinosRankeados = this.ordenarVinosPorRanking(calificacionesPromedioVino);
             this.vinosRanking10 = this.tomar10PrimerosVinosCalificados(vinosRankeados);
-            this.generarArchivoExcel(this.buscarDatos10MejoresVinos(vinosRanking10));
+            this.datosVinosRankeados = this.buscarDatos10MejoresVinos(vinosRanking10);
+            this.generarArchivoExcel(this.datosVinosRankeados);
         }
     }
 
@@ -203,6 +204,7 @@ public class GestorGenerarReporteRankingVino {
         // Este es el orden de los encabezados
         // "Nombre", "Calificación Sommelier", "Calificación General", "Precio ARS",
         // "Bodega", "Varietal", "Región", "País"
+        System.out.println("Datos de los 10 mejores vinos: " + Arrays.deepToString(datosVinosRankeados));
         return datosVinosRankeados;
     }
 

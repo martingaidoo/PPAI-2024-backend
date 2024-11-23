@@ -25,7 +25,8 @@ public class GeneradorArchivoExcel {
                 "Bodega",
                 "Varietal",
                 "Región",
-                "País" };
+                "País" 
+            };
         for (int i = 0; i < headers.length; i++) {
             Cell cell = headerRow.createCell(i);
             cell.setCellValue(headers[i]);
