@@ -15,25 +15,25 @@ import java.util.List;
 public class DatabaseSeeder implements CommandLineRunner {
 
         @Autowired
-        private RepositoryPais paisRepository;
-
-        @Autowired
-        private RepositoryProvincia provinciaRepository;
-
-        @Autowired
-        private RepositoryRegionVitivinicola regionVitivinicolaRepository;
-
-        @Autowired
-        private RepositoryBodega bodegaRepository;
-
-        @Autowired
-        private RepositoryVino vinoRepository;
+        private RepositoryResena resenaRepository;
 
         @Autowired
         private RepositoryVarietal varietalRepository;
 
         @Autowired
-        private RepositoryResena resenaRepository;
+        private RepositoryVino vinoRepository;
+
+        @Autowired
+        private RepositoryBodega bodegaRepository;
+
+        @Autowired
+        private RepositoryRegionVitivinicola regionVitivinicolaRepository;
+
+        @Autowired
+        private RepositoryProvincia provinciaRepository;
+
+        @Autowired
+        private RepositoryPais paisRepository;
 
         @Override
         public void run(String... args) throws Exception {
@@ -312,15 +312,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                 Bodega vinoCurico = new Bodega(null, "Bodega Vino Curico",
                                 "Vinos de terroir, con una fuerte presencia local",
                                 "Fundada en 2005", "Anual", "lat:-34.8500, lon:-71.1500", curico);
-                Bodega bodegaTulumVineyards = new Bodega(null, "Tulum Vineyards",
-                                "Famosa por su Syrah con cuerpo y estructura",
-                                "Desde 2008", "Anual", "lat:31.5000, lon:-68.6000", tulum);
-                Bodega bodegaSanJuanVino = new Bodega(null, "Bodega San Juan Vino", "Productores artesanales de Syrah",
-                                "Desde 2010", "Anual", "lat:31.5500, lon:-68.7000", tulum);
-                Bodega bodegaZondaVineyards = new Bodega(null, "Zonda Vineyards",
-                                "Vinos elegantes y finos, con un toque de historia", "Desde 2005", "Anual",
-                                "lat:31.3000, lon:-68.5000",
-                                zonda);
+
                 Bodega bodegaVinoElegante = new Bodega(null, "Bodega Vino Elegante",
                                 "Especialistas en la crianza de Cabernet Franc", "Fundada en 2012", "Anual",
                                 "lat:31.3500, lon:-68.4500", zonda);
@@ -334,10 +326,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                 Bodega bodegaCalingasta = new Bodega(null, "Bodega Calingasta",
                                 "Viñedos de altura con producción limitada",
                                 "Desde 2011", "Anual", "lat:31.6000, lon:-68.4500", calingasta);
-                Bodega bodegaVallesDeCalingasta = new Bodega(null, "Valles de Calingasta",
-                                "Vinos frescos y elegantes, de zonas altas", "Fundada en 2014", "Anual",
-                                "lat:31.6500, lon:-68.4000",
-                                calingasta);
+
                 Bodega bodegaUllumVineyards = new Bodega(null, "Bodega Ullum Vineyards",
                                 "Pequeña bodega artesanal con excelentes tintos", "Desde 2013", "Anual",
                                 "lat:31.1000, lon:-68.3000",
@@ -347,9 +336,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 "Fundada en 2008", "Anual", "lat:31.0500, lon:-68.2500", ullum);
                 Bodega bodegaAconcaguaWines = new Bodega(null, "Aconcagua Wines", "Famosa por sus Cabernets y Syrah",
                                 "Desde 1990", "Anual", "lat:-32.8000, lon:-70.7500", aconcagua);
-                Bodega bodegaAconcaguaValley = new Bodega(null, "Bodega Aconcagua Valley",
-                                "Viñedos de altura en el corazón del Valle Aconcagua", "Fundada en 1995", "Anual",
-                                "lat:-32.8500, lon:-70.7000", aconcagua);
+
                 Bodega bodegaCachapoalValley = new Bodega(null, "Bodega Cachapoal Valley",
                                 "Vinos Premium con un gran terroir",
                                 "Desde 1997", "Anual", "lat:-34.3000, lon:-70.8000", cachapoal);
@@ -477,18 +464,13 @@ public class DatabaseSeeder implements CommandLineRunner {
                 bodegaRepository.save(bodegaChincha);
                 bodegaRepository.save(bodegaNazca);
                 bodegaRepository.save(bodegaLimaValley);
-                bodegaRepository.save(bodegaTulumVineyards);
-                bodegaRepository.save(bodegaSanJuanVino);
-                bodegaRepository.save(bodegaZondaVineyards);
                 bodegaRepository.save(bodegaVinoElegante);
                 bodegaRepository.save(bodegaPedernalWines);
                 bodegaRepository.save(bodegaGranPedernal);
                 bodegaRepository.save(bodegaCalingasta);
-                bodegaRepository.save(bodegaVallesDeCalingasta);
                 bodegaRepository.save(bodegaUllumVineyards);
                 bodegaRepository.save(bodegaLasPiedras);
                 bodegaRepository.save(bodegaAconcaguaWines);
-                bodegaRepository.save(bodegaAconcaguaValley);
                 bodegaRepository.save(bodegaCachapoalValley);
                 bodegaRepository.save(bodegaGranCachapoal);
                 bodegaRepository.save(bodegaMontGras);
@@ -516,6 +498,8 @@ public class DatabaseSeeder implements CommandLineRunner {
                 bodegaRepository.save(curicoWines);
                 bodegaRepository.save(vinoCurico);
 
+                // Crear Vinos y Varietales
+                // Crear Vinos y Varietales
                 // Crear Vinos y Varietales
                 Vino vinoCopiapo1 = new Vino(null, new Date(), "Copiapó Reserva", 4.5f, 1500.50f, new ArrayList<>(),
                                 new ArrayList<>(), bodegaCopiapo);
@@ -617,18 +601,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 new ArrayList<>(), new ArrayList<>(), bodegaLimaValley);
                 Vino vinoLimaValley2 = new Vino(null, new Date(), "Lima Valley Especial", 4.4f, 1700.75f,
                                 new ArrayList<>(), new ArrayList<>(), bodegaLimaValley);
-                Vino vinoTulumVineyards1 = new Vino(null, new Date(), "Tulum Vineyard Malbec", 4.5f, 2200.80f,
-                                new ArrayList<>(), new ArrayList<>(), bodegaTulumVineyards);
-                Vino vinoTulumVineyards2 = new Vino(null, new Date(), "Tulum Vineyard Reserva", 4.8f, 2500.90f,
-                                new ArrayList<>(), new ArrayList<>(), bodegaTulumVineyards);
-                Vino vinoSanJuanVino1 = new Vino(null, new Date(), "San Juan Vino Tinto", 4.2f, 1600.40f,
-                                new ArrayList<>(), new ArrayList<>(), bodegaSanJuanVino);
-                Vino vinoSanJuanVino2 = new Vino(null, new Date(), "San Juan Vino Reserva", 4.5f, 1800.75f,
-                                new ArrayList<>(), new ArrayList<>(), bodegaSanJuanVino);
-                Vino vinoZondaVineyards1 = new Vino(null, new Date(), "Zonda Malbec", 4.3f, 1700.20f, new ArrayList<>(),
-                                new ArrayList<>(), bodegaZondaVineyards);
-                Vino vinoZondaVineyards2 = new Vino(null, new Date(), "Zonda Reserva", 4.6f, 2000.60f,
-                                new ArrayList<>(), new ArrayList<>(), bodegaZondaVineyards);
                 Vino vinoVinoElegante1 = new Vino(null, new Date(), "Vino Elegante Malbec", 4.5f, 1800.30f,
                                 new ArrayList<>(), new ArrayList<>(), bodegaVinoElegante);
                 Vino vinoVinoElegante2 = new Vino(null, new Date(), "Vino Elegante Reserva", 4.7f, 2100.40f,
@@ -645,10 +617,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 new ArrayList<>(), new ArrayList<>(), bodegaCalingasta);
                 Vino vinoCalingasta2 = new Vino(null, new Date(), "Calingasta Reserva", 4.5f, 1900.60f,
                                 new ArrayList<>(), new ArrayList<>(), bodegaCalingasta);
-                Vino vinoVallesDeCalingasta1 = new Vino(null, new Date(), "Valles de Calingasta Tinto", 4.3f, 1700.40f,
-                                new ArrayList<>(), new ArrayList<>(), bodegaVallesDeCalingasta);
-                Vino vinoVallesDeCalingasta2 = new Vino(null, new Date(), "Valles de Calingasta Gran Reserva", 4.6f,
-                                2200.80f, new ArrayList<>(), new ArrayList<>(), bodegaVallesDeCalingasta);
 
                 vinoRepository.save(vinoBioBioRegion1);
                 vinoRepository.save(vinoBioBioRegion2);
@@ -664,12 +632,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoNazca2);
                 vinoRepository.save(vinoLimaValley1);
                 vinoRepository.save(vinoLimaValley2);
-                vinoRepository.save(vinoTulumVineyards1);
-                vinoRepository.save(vinoTulumVineyards2);
-                vinoRepository.save(vinoSanJuanVino1);
-                vinoRepository.save(vinoSanJuanVino2);
-                vinoRepository.save(vinoZondaVineyards1);
-                vinoRepository.save(vinoZondaVineyards2);
                 vinoRepository.save(vinoVinoElegante1);
                 vinoRepository.save(vinoVinoElegante2);
                 vinoRepository.save(vinoPedernalWines1);
@@ -678,8 +640,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoGranPedernal2);
                 vinoRepository.save(vinoCalingasta1);
                 vinoRepository.save(vinoCalingasta2);
-                vinoRepository.save(vinoVallesDeCalingasta1);
-                vinoRepository.save(vinoVallesDeCalingasta2);
                 vinoRepository.save(vinoCopiapo1);
                 vinoRepository.save(vinoCopiapo2);
                 vinoRepository.save(vinoHuasco1);
@@ -736,14 +696,10 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoChincha1.setVarietal(Arrays.asList(malbecVarietal, syrahVarietal));
                 vinoNazca1.setVarietal(Arrays.asList(cabernetVarietal, merlotVarietal));
                 vinoLimaValley1.setVarietal(Arrays.asList(chardonnayVarietal, malbecVarietal));
-                vinoTulumVineyards1.setVarietal(Arrays.asList(syrahVarietal, merlotVarietal));
-                vinoSanJuanVino1.setVarietal(Arrays.asList(cabernetVarietal, syrahVarietal));
-                vinoZondaVineyards1.setVarietal(Arrays.asList(merlotVarietal, chardonnayVarietal));
                 vinoVinoElegante1.setVarietal(Arrays.asList(malbecVarietal, syrahVarietal));
                 vinoPedernalWines1.setVarietal(Arrays.asList(cabernetVarietal, merlotVarietal));
                 vinoGranPedernal1.setVarietal(Arrays.asList(chardonnayVarietal, malbecVarietal));
                 vinoCalingasta1.setVarietal(Arrays.asList(syrahVarietal, merlotVarietal));
-                vinoVallesDeCalingasta1.setVarietal(Arrays.asList(cabernetVarietal, chardonnayVarietal));
                 vinoCopiapo1.setVarietal(Arrays.asList(malbecVarietal, syrahVarietal));
                 vinoHuasco1.setVarietal(Arrays.asList(merlotVarietal, chardonnayVarietal));
                 vinoItata1.setVarietal(Arrays.asList(cabernetVarietal, syrahVarietal));
@@ -769,14 +725,10 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoChincha2.setVarietal(Arrays.asList(chardonnayVarietal, syrahVarietal));
                 vinoNazca2.setVarietal(Arrays.asList(cabernetVarietal, merlotVarietal));
                 vinoLimaValley2.setVarietal(Arrays.asList(malbecVarietal, chardonnayVarietal));
-                vinoTulumVineyards2.setVarietal(Arrays.asList(syrahVarietal, merlotVarietal));
-                vinoSanJuanVino2.setVarietal(Arrays.asList(cabernetVarietal, syrahVarietal));
-                vinoZondaVineyards2.setVarietal(Arrays.asList(merlotVarietal, chardonnayVarietal));
                 vinoVinoElegante2.setVarietal(Arrays.asList(malbecVarietal, syrahVarietal));
                 vinoPedernalWines2.setVarietal(Arrays.asList(cabernetVarietal, merlotVarietal));
                 vinoGranPedernal2.setVarietal(Arrays.asList(chardonnayVarietal, malbecVarietal));
                 vinoCalingasta2.setVarietal(Arrays.asList(syrahVarietal, merlotVarietal));
-                vinoVallesDeCalingasta2.setVarietal(Arrays.asList(cabernetVarietal, chardonnayVarietal));
                 vinoCopiapo2.setVarietal(Arrays.asList(malbecVarietal, syrahVarietal));
                 vinoHuasco2.setVarietal(Arrays.asList(merlotVarietal, chardonnayVarietal));
                 vinoItata2.setVarietal(Arrays.asList(cabernetVarietal, syrahVarietal));
@@ -809,12 +761,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoNazca2);
                 vinoRepository.save(vinoLimaValley1);
                 vinoRepository.save(vinoLimaValley2);
-                vinoRepository.save(vinoTulumVineyards1);
-                vinoRepository.save(vinoTulumVineyards2);
-                vinoRepository.save(vinoSanJuanVino1);
-                vinoRepository.save(vinoSanJuanVino2);
-                vinoRepository.save(vinoZondaVineyards1);
-                vinoRepository.save(vinoZondaVineyards2);
                 vinoRepository.save(vinoVinoElegante1);
                 vinoRepository.save(vinoVinoElegante2);
                 vinoRepository.save(vinoPedernalWines1);
@@ -823,8 +769,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoGranPedernal2);
                 vinoRepository.save(vinoCalingasta1);
                 vinoRepository.save(vinoCalingasta2);
-                vinoRepository.save(vinoVallesDeCalingasta1);
-                vinoRepository.save(vinoVallesDeCalingasta2);
                 vinoRepository.save(vinoCopiapo1);
                 vinoRepository.save(vinoCopiapo2);
                 vinoRepository.save(vinoHuasco1);
@@ -872,12 +816,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoNazca2);
                 vinoRepository.save(vinoLimaValley1);
                 vinoRepository.save(vinoLimaValley2);
-                vinoRepository.save(vinoTulumVineyards1);
-                vinoRepository.save(vinoTulumVineyards2);
-                vinoRepository.save(vinoSanJuanVino1);
-                vinoRepository.save(vinoSanJuanVino2);
-                vinoRepository.save(vinoZondaVineyards1);
-                vinoRepository.save(vinoZondaVineyards2);
                 vinoRepository.save(vinoVinoElegante1);
                 vinoRepository.save(vinoVinoElegante2);
                 vinoRepository.save(vinoPedernalWines1);
@@ -886,8 +824,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoGranPedernal2);
                 vinoRepository.save(vinoCalingasta1);
                 vinoRepository.save(vinoCalingasta2);
-                vinoRepository.save(vinoVallesDeCalingasta1);
-                vinoRepository.save(vinoVallesDeCalingasta2);
                 vinoRepository.save(vinoCopiapo1);
                 vinoRepository.save(vinoCopiapo2);
                 vinoRepository.save(vinoHuasco1);
@@ -1200,129 +1136,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 3.9f, false,
                                 vinoLimaValley2);
 
-                Resena reseñaTulumVineyards1_1 = new Resena(null,
-                                "Excelente balance entre frescura y cuerpo, ideal para maridar con mariscos.",
-                                new Date(), 4.8f, true,
-                                vinoTulumVineyards1);
-                Resena reseñaTulumVineyards1_2 = new Resena(null,
-                                "Vino bien estructurado, con una acidez que equilibra sus notas afrutadas.", new Date(),
-                                4.6f, true,
-                                vinoTulumVineyards1);
-                Resena reseñaTulumVineyards1_3 = new Resena(null, "Agradable y suave, con una textura cremosa en boca.",
-                                new Date(), 4.5f, true, vinoTulumVineyards1);
-                Resena reseñaTulumVineyards1_4 = new Resena(null,
-                                "Ideal para acompañar carnes blancas, tiene un retrogusto muy delicado.", new Date(),
-                                4.4f, true,
-                                vinoTulumVineyards1);
-                Resena reseñaTulumVineyards1_5 = new Resena(null,
-                                "Vino algo simple, pero adecuado para una tarde con amigos.",
-                                new Date(), 4.0f, false, vinoTulumVineyards1);
-
-                // Persistir
-                Resena reseñaTulumVineyards2_1 = new Resena(null,
-                                "Vino de excelente calidad, con una acidez que lo hace muy refrescante.", new Date(),
-                                4.7f, true,
-                                vinoTulumVineyards2);
-                Resena reseñaTulumVineyards2_2 = new Resena(null,
-                                "Notas de frutas tropicales y una textura suave, lo convierten en un vino muy placentero.",
-                                new Date(),
-                                4.6f, true, vinoTulumVineyards2);
-                Resena reseñaTulumVineyards2_3 = new Resena(null,
-                                "Perfecto para maridar con platos picantes, tiene un final ligeramente amargo.",
-                                new Date(), 4.4f, true,
-                                vinoTulumVineyards2);
-                Resena reseñaTulumVineyards2_4 = new Resena(null,
-                                "Vino bien logrado, pero podría tener más cuerpo y complejidad.", new Date(), 4.1f,
-                                true,
-                                vinoTulumVineyards2);
-                Resena reseñaTulumVineyards2_5 = new Resena(null,
-                                "Algo monótono, le falta algo de innovación en el perfil de sabor.", new Date(), 3.9f,
-                                false,
-                                vinoTulumVineyards2);
-
-                Resena reseñaSanJuanVino1_1 = new Resena(null,
-                                "Gran vino de cuerpo robusto y excelente estructura, ideal para platos fuertes.",
-                                new Date(), 4.9f,
-                                true, vinoSanJuanVino1);
-                Resena reseñaSanJuanVino1_2 = new Resena(null,
-                                "Vino profundo y elegante, con una mezcla de especias que lo hace muy interesante.",
-                                new Date(), 4.7f,
-                                true, vinoSanJuanVino1);
-                Resena reseñaSanJuanVino1_3 = new Resena(null,
-                                "Muy bueno, con un final largo y persistente que destaca en el paladar.", new Date(),
-                                4.5f, true,
-                                vinoSanJuanVino1);
-                Resena reseñaSanJuanVino1_4 = new Resena(null,
-                                "Buen equilibrio entre frutas y taninos, aunque le falta algo de complejidad.",
-                                new Date(), 4.2f, true,
-                                vinoSanJuanVino1);
-                Resena reseñaSanJuanVino1_5 = new Resena(null,
-                                "Sabor suave, pero demasiado ligero para mi gusto. Ideal para quienes prefieren vinos menos intensos.",
-                                new Date(), 3.8f, false, vinoSanJuanVino1);
-
-                // Persistir
-                Resena reseñaSanJuanVino2_1 = new Resena(null,
-                                "Vino robusto, con notas especiadas y un toque ahumado que lo hace único.", new Date(),
-                                4.8f, true,
-                                vinoSanJuanVino2);
-                Resena reseñaSanJuanVino2_2 = new Resena(null,
-                                "Interesante mezcla de frutas rojas y un final algo terroso, pero bien logrado.",
-                                new Date(), 4.6f,
-                                true, vinoSanJuanVino2);
-                Resena reseñaSanJuanVino2_3 = new Resena(null,
-                                "Vino de buen cuerpo, con una acidez perfecta que lo hace ideal para carnes.",
-                                new Date(), 4.4f, true,
-                                vinoSanJuanVino2);
-                Resena reseñaSanJuanVino2_4 = new Resena(null,
-                                "Vino agradable, pero la falta de complejidad lo hace menos memorable.", new Date(),
-                                4.0f, true,
-                                vinoSanJuanVino2);
-                Resena reseñaSanJuanVino2_5 = new Resena(null,
-                                "No muy interesante, pero cumple con lo básico. Puede ser adecuado para ocasiones informales.",
-                                new Date(), 3.8f, false, vinoSanJuanVino2);
-
-                // Persistir
-                Resena reseñaZondaVineyards1_1 = new Resena(null,
-                                "Excelente vino con un toque afrutado y un final elegante, ideal para carnes rojas.",
-                                new Date(), 4.9f,
-                                true, vinoZondaVineyards1);
-                Resena reseñaZondaVineyards1_2 = new Resena(null,
-                                "Un vino con cuerpo, bien equilibrado, que resalta por sus notas especiadas.",
-                                new Date(), 4.7f, true,
-                                vinoZondaVineyards1);
-                Resena reseñaZondaVineyards1_3 = new Resena(null,
-                                "Agradable y con una acidez bien integrada, pero le falta algo de complejidad.",
-                                new Date(), 4.5f, true,
-                                vinoZondaVineyards1);
-                Resena reseñaZondaVineyards1_4 = new Resena(null,
-                                "Buen vino, con una estructura sólida y un final bastante persistente.", new Date(),
-                                4.3f, true,
-                                vinoZondaVineyards1);
-                Resena reseñaZondaVineyards1_5 = new Resena(null,
-                                "Un vino correcto, pero no destaca por nada en particular.",
-                                new Date(), 3.9f, false, vinoZondaVineyards1);
-
-                // Persistir
-                Resena reseñaZondaVineyards2_1 = new Resena(null,
-                                "Vino con un equilibrio perfecto entre frutas y taninos, muy bien logrado.", new Date(),
-                                4.8f, true,
-                                vinoZondaVineyards2);
-                Resena reseñaZondaVineyards2_2 = new Resena(null,
-                                "Suave y elegante, con un final largo y una mezcla perfecta de especias.", new Date(),
-                                4.6f, true,
-                                vinoZondaVineyards2);
-                Resena reseñaZondaVineyards2_3 = new Resena(null,
-                                "Un vino robusto y estructurado, con un toque ahumado que lo hace especial.",
-                                new Date(), 4.4f, true,
-                                vinoZondaVineyards2);
-                Resena reseñaZondaVineyards2_4 = new Resena(null,
-                                "Agradable, aunque un poco más sencillo de lo que esperaba.",
-                                new Date(), 4.2f, true, vinoZondaVineyards2);
-                Resena reseñaZondaVineyards2_5 = new Resena(null,
-                                "Buen vino, pero me gustaría que tuviera un perfil de sabor más profundo.", new Date(),
-                                4.0f, false,
-                                vinoZondaVineyards2);
-
                 Resena reseñaVinoElegante1_1 = new Resena(null,
                                 "Un vino refinado con toques de frutas rojas y un final suave.",
                                 new Date(), 4.9f, true, vinoVinoElegante1);
@@ -1485,47 +1298,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                                 "Vino correcto, pero le falta algo de carácter para ser verdaderamente memorable.",
                                 new Date(), 4.0f,
                                 false, vinoCalingasta2);
-
-                Resena reseñaVallesDeCalingasta1_1 = new Resena(null,
-                                "Excelente vino con un balance perfecto entre fruta y taninos. Ideal para maridar con carnes.",
-                                new Date(), 4.8f, true, vinoVallesDeCalingasta1);
-                Resena reseñaVallesDeCalingasta1_2 = new Resena(null,
-                                "Un vino bien estructurado con un final largo y especiado. Muy recomendado.",
-                                new Date(), 4.6f, true,
-                                vinoVallesDeCalingasta1);
-                Resena reseñaVallesDeCalingasta1_3 = new Resena(null,
-                                "Agradable y con una buena acidez. Perfecto para disfrutar en una comida.", new Date(),
-                                4.4f, true,
-                                vinoVallesDeCalingasta1);
-                Resena reseñaVallesDeCalingasta1_4 = new Resena(null,
-                                "Vino correcto, pero me faltó algo más de complejidad en sus aromas.", new Date(), 4.2f,
-                                true,
-                                vinoVallesDeCalingasta1);
-                Resena reseñaVallesDeCalingasta1_5 = new Resena(null,
-                                "Buen vino, pero no destaca tanto como otros de la misma gama.", new Date(), 4.0f,
-                                false,
-                                vinoVallesDeCalingasta1);
-
-                Resena reseñaVallesDeCalingasta2_1 = new Resena(null,
-                                "Vino con una excelente mezcla de taninos suaves y fruta madura. Muy recomendable.",
-                                new Date(), 4.9f,
-                                true, vinoVallesDeCalingasta2);
-                Resena reseñaVallesDeCalingasta2_2 = new Resena(null,
-                                "Buen cuerpo y una acidez bien equilibrada. Ideal para acompañar carnes.", new Date(),
-                                4.7f, true,
-                                vinoVallesDeCalingasta2);
-                Resena reseñaVallesDeCalingasta2_3 = new Resena(null,
-                                "Vino interesante, con un final largo y complejo.",
-                                new Date(), 4.5f, true, vinoVallesDeCalingasta2);
-                Resena reseñaVallesDeCalingasta2_4 = new Resena(null,
-                                "Vino agradable, aunque me gustaría que tuviera más profundidad en los sabores.",
-                                new Date(), 4.3f,
-                                true, vinoVallesDeCalingasta2);
-                Resena reseñaVallesDeCalingasta2_5 = new Resena(null,
-                                "Vino correcto, pero no destaca mucho frente a otros de la misma región.", new Date(),
-                                4.1f, false,
-                                vinoVallesDeCalingasta2);
-
                 Resena reseñaCopiapo1_1 = new Resena(null,
                                 "Vino de gran cuerpo y estructura. Muy adecuado para carnes rojas.",
                                 new Date(), 4.8f, true, vinoCopiapo1);
@@ -2159,36 +1931,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 resenaRepository.save(reseñaLimaValley2_3);
                 resenaRepository.save(reseñaLimaValley2_4);
                 resenaRepository.save(reseñaLimaValley2_5);
-                resenaRepository.save(reseñaTulumVineyards1_1);
-                resenaRepository.save(reseñaTulumVineyards1_2);
-                resenaRepository.save(reseñaTulumVineyards1_3);
-                resenaRepository.save(reseñaTulumVineyards1_4);
-                resenaRepository.save(reseñaTulumVineyards1_5);
-                resenaRepository.save(reseñaTulumVineyards2_1);
-                resenaRepository.save(reseñaTulumVineyards2_2);
-                resenaRepository.save(reseñaTulumVineyards2_3);
-                resenaRepository.save(reseñaTulumVineyards2_4);
-                resenaRepository.save(reseñaTulumVineyards2_5);
-                resenaRepository.save(reseñaSanJuanVino1_1);
-                resenaRepository.save(reseñaSanJuanVino1_2);
-                resenaRepository.save(reseñaSanJuanVino1_3);
-                resenaRepository.save(reseñaSanJuanVino1_4);
-                resenaRepository.save(reseñaSanJuanVino1_5);
-                resenaRepository.save(reseñaSanJuanVino2_1);
-                resenaRepository.save(reseñaSanJuanVino2_2);
-                resenaRepository.save(reseñaSanJuanVino2_3);
-                resenaRepository.save(reseñaSanJuanVino2_4);
-                resenaRepository.save(reseñaSanJuanVino2_5);
-                resenaRepository.save(reseñaZondaVineyards1_1);
-                resenaRepository.save(reseñaZondaVineyards1_2);
-                resenaRepository.save(reseñaZondaVineyards1_3);
-                resenaRepository.save(reseñaZondaVineyards1_4);
-                resenaRepository.save(reseñaZondaVineyards1_5);
-                resenaRepository.save(reseñaZondaVineyards2_1);
-                resenaRepository.save(reseñaZondaVineyards2_2);
-                resenaRepository.save(reseñaZondaVineyards2_3);
-                resenaRepository.save(reseñaZondaVineyards2_4);
-                resenaRepository.save(reseñaZondaVineyards2_5);
                 resenaRepository.save(reseñaVinoElegante1_1);
                 resenaRepository.save(reseñaVinoElegante1_2);
                 resenaRepository.save(reseñaVinoElegante1_3);
@@ -2229,16 +1971,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 resenaRepository.save(reseñaCalingasta2_3);
                 resenaRepository.save(reseñaCalingasta2_4);
                 resenaRepository.save(reseñaCalingasta2_5);
-                resenaRepository.save(reseñaVallesDeCalingasta1_1);
-                resenaRepository.save(reseñaVallesDeCalingasta1_2);
-                resenaRepository.save(reseñaVallesDeCalingasta1_3);
-                resenaRepository.save(reseñaVallesDeCalingasta1_4);
-                resenaRepository.save(reseñaVallesDeCalingasta1_5);
-                resenaRepository.save(reseñaVallesDeCalingasta2_1);
-                resenaRepository.save(reseñaVallesDeCalingasta2_2);
-                resenaRepository.save(reseñaVallesDeCalingasta2_3);
-                resenaRepository.save(reseñaVallesDeCalingasta2_4);
-                resenaRepository.save(reseñaVallesDeCalingasta2_5);
                 resenaRepository.save(reseñaCopiapo1_1);
                 resenaRepository.save(reseñaCopiapo1_2);
                 resenaRepository.save(reseñaCopiapo1_3);
@@ -2460,31 +2192,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoLimaValley2.setResenas(Arrays.asList(reseñaLimaValley2_1, reseñaLimaValley2_2, reseñaLimaValley2_3,
                                 reseñaLimaValley2_4, reseñaLimaValley2_5));
 
-                // Asignar reseñas a Vino TulumVineyards1
-                vinoTulumVineyards1.setResenas(Arrays.asList(reseñaTulumVineyards1_1, reseñaTulumVineyards1_2,
-                                reseñaTulumVineyards1_3, reseñaTulumVineyards1_4, reseñaTulumVineyards1_5));
-
-                // Asignar reseñas a Vino TulumVineyards2
-                vinoTulumVineyards2.setResenas(Arrays.asList(reseñaTulumVineyards2_1, reseñaTulumVineyards2_2,
-                                reseñaTulumVineyards2_3, reseñaTulumVineyards2_4, reseñaTulumVineyards2_5));
-
-                // Asignar reseñas a Vino SanJuanVino1
-                vinoSanJuanVino1.setResenas(
-                                Arrays.asList(reseñaSanJuanVino1_1, reseñaSanJuanVino1_2, reseñaSanJuanVino1_3,
-                                                reseñaSanJuanVino1_4, reseñaSanJuanVino1_5));
-
-                // Asignar reseñas a Vino SanJuanVino2
-                vinoSanJuanVino2.setResenas(
-                                Arrays.asList(reseñaSanJuanVino2_1, reseñaSanJuanVino2_2, reseñaSanJuanVino2_3,
-                                                reseñaSanJuanVino2_4, reseñaSanJuanVino2_5));
-
-                // Asignar reseñas a Vino ZondaVineyards1
-                vinoZondaVineyards1.setResenas(Arrays.asList(reseñaZondaVineyards1_1, reseñaZondaVineyards1_2,
-                                reseñaZondaVineyards1_3, reseñaZondaVineyards1_4, reseñaZondaVineyards1_5));
-
                 // Asignar reseñas a Vino ZondaVineyards2
-                vinoZondaVineyards2.setResenas(Arrays.asList(reseñaZondaVineyards2_1, reseñaZondaVineyards2_2,
-                                reseñaZondaVineyards2_3, reseñaZondaVineyards2_4, reseñaZondaVineyards2_5));
 
                 // Asignar reseñas a Vino VinoElegante1
                 vinoVinoElegante1.setResenas(
@@ -2526,19 +2234,6 @@ public class DatabaseSeeder implements CommandLineRunner {
 
                 // 7
 
-                // Asignar reseñas a Vino VallesDeCalingasta1
-                vinoVallesDeCalingasta1
-                                .setResenas(Arrays.asList(reseñaVallesDeCalingasta1_1, reseñaVallesDeCalingasta1_2,
-                                                reseñaVallesDeCalingasta1_3, reseñaVallesDeCalingasta1_4,
-                                                reseñaVallesDeCalingasta1_5));
-
-                // Asignar reseñas a Vino VallesDeCalingasta2
-                vinoVallesDeCalingasta2
-                                .setResenas(Arrays.asList(reseñaVallesDeCalingasta2_1, reseñaVallesDeCalingasta2_2,
-                                                reseñaVallesDeCalingasta2_3, reseñaVallesDeCalingasta2_4,
-                                                reseñaVallesDeCalingasta2_5));
-
-                // Asignar reseñas a Vino Copiapo1
                 vinoCopiapo1.setResenas(
                                 Arrays.asList(reseñaCopiapo1_1, reseñaCopiapo1_2, reseñaCopiapo1_3, reseñaCopiapo1_4,
                                                 reseñaCopiapo1_5));
@@ -2695,12 +2390,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoNazca2);
                 vinoRepository.save(vinoLimaValley1);
                 vinoRepository.save(vinoLimaValley2);
-                vinoRepository.save(vinoTulumVineyards1);
-                vinoRepository.save(vinoTulumVineyards2);
-                vinoRepository.save(vinoSanJuanVino1);
-                vinoRepository.save(vinoSanJuanVino2);
-                vinoRepository.save(vinoZondaVineyards1);
-                vinoRepository.save(vinoZondaVineyards2);
                 vinoRepository.save(vinoVinoElegante1);
                 vinoRepository.save(vinoVinoElegante2);
                 vinoRepository.save(vinoPedernalWines1);
@@ -2709,8 +2398,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoGranPedernal2);
                 vinoRepository.save(vinoCalingasta1);
                 vinoRepository.save(vinoCalingasta2);
-                vinoRepository.save(vinoVallesDeCalingasta1);
-                vinoRepository.save(vinoVallesDeCalingasta2);
                 vinoRepository.save(vinoCopiapo1);
                 vinoRepository.save(vinoCopiapo2);
                 vinoRepository.save(vinoHuasco1);
@@ -2757,12 +2444,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoNazca2);
                 vinoRepository.save(vinoLimaValley1);
                 vinoRepository.save(vinoLimaValley2);
-                vinoRepository.save(vinoTulumVineyards1);
-                vinoRepository.save(vinoTulumVineyards2);
-                vinoRepository.save(vinoSanJuanVino1);
-                vinoRepository.save(vinoSanJuanVino2);
-                vinoRepository.save(vinoZondaVineyards1);
-                vinoRepository.save(vinoZondaVineyards2);
                 vinoRepository.save(vinoVinoElegante1);
                 vinoRepository.save(vinoVinoElegante2);
                 vinoRepository.save(vinoPedernalWines1);
@@ -2771,8 +2452,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 vinoRepository.save(vinoGranPedernal2);
                 vinoRepository.save(vinoCalingasta1);
                 vinoRepository.save(vinoCalingasta2);
-                vinoRepository.save(vinoVallesDeCalingasta1);
-                vinoRepository.save(vinoVallesDeCalingasta2);
                 vinoRepository.save(vinoCopiapo1);
                 vinoRepository.save(vinoCopiapo2);
                 vinoRepository.save(vinoHuasco1);

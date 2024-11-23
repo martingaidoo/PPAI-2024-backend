@@ -3,6 +3,8 @@ package com.bonvino.controller;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -16,23 +18,20 @@ import com.bonvino.service.strategyGenerarRankingVino.EstrategiaResenaNormal;
 import com.bonvino.service.strategyGenerarRankingVino.IEstrategia;
 import com.bonvino.model.Vino;
 import com.bonvino.repository.RepositoryVino;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.stereotype.Service;
+import java.io.IOException;
 
 @Service
 public class GestorGenerarReporteRankingVino {
 
-    private final RepositoryVino repositoryVino;
     private final GeneradorArchivoExcel generadorArchivoExcel;
+    private final RepositoryVino repositoryVino;
 
-    // Inyección del repositorio por constructor
-    public GestorGenerarReporteRankingVino(RepositoryVino repositoryVino) {
+    // Inyección del repositorio y del generador de archivos por constructor
+    @Autowired
+    public GestorGenerarReporteRankingVino(GeneradorArchivoExcel generadorArchivoExcel, RepositoryVino repositoryVino) {
+        this.generadorArchivoExcel = generadorArchivoExcel;
         this.repositoryVino = repositoryVino;
-        this.generadorArchivoExcel = new GeneradorArchivoExcel();
     }
 
     // Atributos del request
@@ -47,12 +46,13 @@ public class GestorGenerarReporteRankingVino {
     private String tipoVisualizacionSeleccionada;
 
     // Atributos de vinos filtrados y rankeados
-    private Vino[] vinosFiltradosPorReseña;
-    private Vino[] vinosFiltradosPorReseñaConPromedio;
+    private List<Vino> todosLosVinos;
+    private List<Vino> vinosFiltradosPorReseña;
+    private List<Vino> vinosFiltradosPorReseñaConPromedio;
     private Object[] vinosRankeados;
     private Object[] vinosRanking10;
     private String[][] datosVinosRankeados;
-    private Vino[] vinosConReseña;
+    private List<Vino> vinosConReseña;
 
     // Atributo puntero a la estrategia elegida
     private IEstrategia estrategiaElegida;
@@ -73,6 +73,7 @@ public class GestorGenerarReporteRankingVino {
     }
 
     public void tomarSeleccionTipoReporte(String tipoReporteSeleccionado) {
+        this.tipoReporteSeleccionado = tipoReporteSeleccionado;
         this.estrategiaElegida = crearEstrategia();
     }
 
@@ -105,7 +106,7 @@ public class GestorGenerarReporteRankingVino {
                 this.estrategiaElegida = new EstrategiaResenaDeAmigos();
                 break;
             case "Resena de sommelier":
-                this.estrategiaElegida = new EstrategiaResenaDeSommelier(null);
+                this.estrategiaElegida = new EstrategiaResenaDeSommelier();
                 break;
             case "Resena normal":
                 this.estrategiaElegida = new EstrategiaResenaNormal();
@@ -117,8 +118,11 @@ public class GestorGenerarReporteRankingVino {
     }
 
     public void buscarVinosConReseñasPorTipoYEnFecha(Date fechaInicio, Date fechaFin) {
+        this.todosLosVinos = this.repositoryVino.findAll();
+
         this.vinosConReseña = this.estrategiaElegida.buscarVinosConReseñasPorTipoYEnFecha(this.fechaInicio,
-                this.fechaFin);
+                this.fechaFin, this.todosLosVinos);
+
     }
 
     public Object[] calcularCalificacionesPromedio() {
@@ -188,5 +192,4 @@ public class GestorGenerarReporteRankingVino {
     public void setEstrategiaElegida(IEstrategia estrategiaElegida) {
         this.estrategiaElegida = estrategiaElegida;
     }
-
 }

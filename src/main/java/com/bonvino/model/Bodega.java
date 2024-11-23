@@ -22,7 +22,8 @@ public class Bodega {
     private String periodoActualizacion;
     private String coordenadasUbicacion;
 
-    @OneToOne(targetEntity = RegionVitivinicola.class, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_vitivinicola_id", nullable = false) // Clave foránea
     private RegionVitivinicola regionVitivinicola;
 
     public String getNombre() {

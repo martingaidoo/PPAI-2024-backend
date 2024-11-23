@@ -1,3 +1,13 @@
+
+
+"fechaInicio": "2024-11-19"
+"fechaFin": "2024-11-25"
+"tipoReporteSeleccionado": "Resena de sommelier"
+"confirmacionReporte": true
+
+
+
+
 // Asignar reseñas a Vino BioBioRegion1
                 vinoBioBioRegion1.setResenas(
                                 Arrays.asList(reseñaBioBioRegion1_1, reseñaBioBioRegion1_2, reseñaBioBioRegion1_3,

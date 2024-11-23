@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/reportes")
+@RequestMapping("/api")
 public class PantallaGenerarReporteRankingVino {
 
     // Constructor de la pantalla y relacion con el gestor
@@ -39,6 +39,11 @@ public class PantallaGenerarReporteRankingVino {
             // En caso de error, devolver un código HTTP 500
             return ResponseEntity.status(500).body(null);
         }
+    }
+
+    @GetMapping("/hello")
+    public ResponseEntity<String> helloWorld() {
+        return ResponseEntity.ok("Hello, World!");
     }
 
     // Metodos de comunicacion entre la pantalla y el gestor para pasar los datos
