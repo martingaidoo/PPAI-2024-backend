@@ -37,6 +37,13 @@ public class DatabaseSeeder implements CommandLineRunner {
 
         @Override
         public void run(String... args) throws Exception {
+                
+                if (vinoRepository.count() > 0) {
+                        System.out.println("Database already seeded. Skipping seeder.");
+                        return;
+                }
+                
+
                 // Crear instancias de las entidades principales
 
                 // Crear Paises y Provincias
