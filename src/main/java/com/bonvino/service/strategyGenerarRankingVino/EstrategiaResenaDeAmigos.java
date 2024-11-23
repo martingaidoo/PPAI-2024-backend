@@ -1,9 +1,9 @@
 package com.bonvino.service.strategyGenerarRankingVino;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
-import com.bonvino.service.strategyGenerarRankingVino.IEstrategia;
 import com.bonvino.model.Vino;
+
+import java.util.Date;
 
 @Service
 public class EstrategiaResenaDeAmigos implements IEstrategia {
@@ -12,12 +12,12 @@ public class EstrategiaResenaDeAmigos implements IEstrategia {
     // que no se implementaron para esta entrega
 
     @Override
-    public float[] calcularCalificacionesPromedio(String tipo) {
-        return new float[0];
+    public Object[] calcularCalificacionesPromedio(Date fechaInicio, Date fechaFin, Vino[] vinosFiltradosPorResena) {
+        return new Object[0];
     }
 
     @Override
-    public Vino[] buscarVinosConReseñasPorTipoYEnFecha(String fecha) {
+    public Vino[] buscarVinosConReseñasPorTipoYEnFecha(Date fechaInicio, Date fechaFin) {
         throw new UnsupportedOperationException("Método no implementado");
     }
 }

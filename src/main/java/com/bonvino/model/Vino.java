@@ -22,36 +22,34 @@ public class Vino {
     private float precioARS;
 
     @OneToMany(targetEntity = Varietal.class)
-    private Varietal[] varietal;
+    private Varietal[] varietal = new Varietal[0];
     @OneToMany(targetEntity = Resena.class)
-    private Resena[] resena;
+    private Resena[] resena = new Resena[0];
     @ManyToOne(targetEntity = Bodega.class)
     private Bodega bodega;
 
-    public Resena[] tieneResenaEnFecha(Date fechaInicio, Date fechaFin) {
-        List<Resena> resenasFiltradas = new ArrayList<>();
-        for (Resena resena_i : resena) {
+
+    public Boolean tieneResenaEnFecha(Date fechaInicio, Date fechaFin) {
+        for (Resena resena_i : resena) { // esta variable reseña no tiene sentido, seguramente este vacia, debe buscar todas las reseñas del vino
             if (resena_i.estaEnPeriodo(fechaInicio, fechaFin)) {
-                resenasFiltradas.add(resena_i);
+                if(resena_i.sosDeSommelier()){
+                    return true;
+                }
             }
         }
-        return resenasFiltradas.toArray(new Resena[0]);
+        return false;
     }
 
     public float calcularRanking(Date fechaInicio, Date fechaFin) {
-        Resena[] resenasFiltradas = tieneResenaEnFecha(fechaInicio, fechaFin);
-        float sumaPuntajes = 0;
+        float puntaje = 0;
         int contadorSommelier = 0;
-        for (Resena resena : resenasFiltradas) {
-            if (resena.sosDeSommelier() && resena.estaEnPeriodo(fechaInicio, fechaFin)) {
-                sumaPuntajes += resena.getPuntaje();
+        for (Resena resena_i : resena) {
+            if (resena_i.estaEnPeriodo(fechaInicio, fechaFin) && resena_i.sosDeSommelier()) {
+                puntaje += resena_i.getPuntaje();
                 contadorSommelier++;
             }
         }
-        if (contadorSommelier == 0) {
-            return 0;
-        }
-        return sumaPuntajes / contadorSommelier;
+        return contadorSommelier > 0 ? puntaje / contadorSommelier : 0;
     }
 
     public String obtenerBodega() {
