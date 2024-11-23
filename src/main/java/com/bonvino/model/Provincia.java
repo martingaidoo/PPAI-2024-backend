@@ -1,4 +1,4 @@
-package com.bonvino;
+package com.bonvino.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
