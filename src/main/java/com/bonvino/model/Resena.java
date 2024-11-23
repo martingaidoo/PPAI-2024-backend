@@ -19,8 +19,7 @@ public class Resena {
     private float puntaje;
     private boolean esDeSommelier;
 
-    @OneToOne
-    @JoinColumn(name = "vino_id")
+    @ManyToOne(targetEntity = Vino.class, fetch = FetchType.LAZY)
     private Vino vino;
 
     public boolean estaEnPeriodo(Date fechaInicio, Date fechaFin) {
