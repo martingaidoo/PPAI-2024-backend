@@ -2,8 +2,10 @@ package com.bonvino.boundary;
 
 import com.bonvino.controller.GestorGenerarReporteRankingVino;
 import com.bonvino.dto.GenerarReporteRankingVinoRequest;
+import com.bonvino.model.Vino;
 
 import java.net.http.HttpHeaders;
+import java.util.List;
 
 import org.apache.tomcat.util.http.parser.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,13 @@ public class PantallaGenerarReporteRankingVino {
             // En caso de error, devolver un código HTTP 500
             return ResponseEntity.status(500).body(null);
         }
+    }
+
+    @GetMapping("/todos-los-vinos")
+    public List<Vino> obtenerTodosLosVinos() {
+        // Llamar al gestor para obtener el archivo Excel en formato byte[]
+        return gestor.obtenerTodosLosVinos();
+
     }
 
     @GetMapping("/hello")

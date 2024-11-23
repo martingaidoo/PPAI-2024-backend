@@ -47,12 +47,11 @@ public class GestorGenerarReporteRankingVino {
 
     // Atributos de vinos filtrados y rankeados
     private List<Vino> todosLosVinos;
-    private List<Vino> vinosFiltradosPorReseña;
+    private List<Vino> vinosFiltradosPorResena;
     private List<Vino> vinosFiltradosPorReseñaConPromedio;
     private Object[] vinosRankeados;
     private Object[] vinosRanking10;
     private String[][] datosVinosRankeados;
-    private List<Vino> vinosConReseña;
 
     // Atributo puntero a la estrategia elegida
     private IEstrategia estrategiaElegida;
@@ -66,6 +65,7 @@ public class GestorGenerarReporteRankingVino {
     }
 
     public byte[] opcionGenerarRankingVino(GenerarReporteRankingVinoRequest request) {
+        this.todosLosVinos = repositoryVino.findAll();
         this.pantalla.solicitarSeleccionFechasInicioFin(request);
         this.pantalla.mostrarYSolicitarTipoReporte(request);
         this.pantalla.solicitarConfirmacionReporte(request);
@@ -78,7 +78,7 @@ public class GestorGenerarReporteRankingVino {
     }
 
     public void tomarSeleccionFechasInicioFin(String fechaInicio, String fechaFin) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             this.fechaInicio = dateFormat.parse(fechaInicio);
             this.fechaFin = dateFormat.parse(fechaFin);
@@ -91,11 +91,11 @@ public class GestorGenerarReporteRankingVino {
     public void tomarConfirmacionReporte(Boolean confirmado) {
         this.confirmacionReporte = confirmado;
         if (this.confirmacionReporte) {
-            this.buscarVinosConReseñasPorTipoYEnFecha(this.fechaInicio, this.fechaFin);
+            this.buscarvinosFiltradosPorResenasPorTipoYEnFecha();
             Object[] calificacionesPromedioVino = this.calcularCalificacionesPromedio();
-            this.vinosRanking10 = this.ordenarVinosPorRanking(calificacionesPromedioVino);
-            Object[] vinosRanking10Final = this.tomar10PrimerosVinosCalificados(vinosRanking10);
-            this.generarArchivoExcel(this.buscarDatos10MejoresVinos(vinosRanking10Final));
+            this.vinosRankeados = this.ordenarVinosPorRanking(calificacionesPromedioVino);
+            this.vinosRanking10 = this.tomar10PrimerosVinosCalificados(vinosRankeados);
+            this.generarArchivoExcel(this.buscarDatos10MejoresVinos(vinosRanking10));
         }
     }
 
@@ -117,61 +117,89 @@ public class GestorGenerarReporteRankingVino {
         return this.estrategiaElegida;
     }
 
-    public void buscarVinosConReseñasPorTipoYEnFecha(Date fechaInicio, Date fechaFin) {
-        this.todosLosVinos = this.repositoryVino.findAll();
+    public void buscarvinosFiltradosPorResenasPorTipoYEnFecha() {
 
-        this.vinosConReseña = this.estrategiaElegida.buscarVinosConReseñasPorTipoYEnFecha(this.fechaInicio,
+        this.vinosFiltradosPorResena = this.estrategiaElegida.buscarvinosFiltradosPorResenasPorTipoYEnFecha(
+                this.fechaInicio,
                 this.fechaFin, this.todosLosVinos);
 
     }
 
     public Object[] calcularCalificacionesPromedio() {
         return this.estrategiaElegida.calcularCalificacionesPromedio(this.fechaInicio, this.fechaFin,
-                this.vinosFiltradosPorReseña);
+                this.vinosFiltradosPorResena);
     }
 
     // ** Este metodo deberia recibir un array de vinos con sus calificaciones
     //
     // promedio y ordenarlos por ranking
     public Object[] ordenarVinosPorRanking(Object[] vinosRanking) {
+        if (vinosRanking == null || vinosRanking.length == 0) {
+            throw new IllegalArgumentException("La lista de vinos a ordenar está vacía o es nula");
+        }
+        // Imprimir el contenido de vinosRanking antes de ordenar
+        System.out.println("Contenido de vinosRanking antes de ordenar: " + Arrays.toString(vinosRanking));
+
         Arrays.sort(vinosRanking, new Comparator<Object>() {
             @Override
             public int compare(Object o1, Object o2) {
                 Object[] vino1 = (Object[]) o1;
                 Object[] vino2 = (Object[]) o2;
-                Double ranking1 = (Double) vino1[1];
-                Double ranking2 = (Double) vino2[1];
-                return ranking1.compareTo(ranking2);
+                float ranking1 = (float) vino1[1];
+                float ranking2 = (float) vino2[1];
+                return Float.compare(ranking1, ranking2);
             }
         });
+        System.out.println("Vinos ordenados por ranking: " + Arrays.toString(vinosRanking));
         return vinosRanking;
     }
 
     public Object[] tomar10PrimerosVinosCalificados(Object[] vinosRanking) {
-        Object[] vinosRanking10 = new Object[10];
+        this.vinosRanking10 = new Object[10];
         for (int i = 0; i < 10; i++) {
-            vinosRanking10[i] = vinosRanking[i];
+            this.vinosRanking10[i] = vinosRanking[i];
         }
         return vinosRanking10;
     }
 
     public String[][] buscarDatos10MejoresVinos(Object[] vinosRanking10) {
-        String[][] datosVinosRankeados = new String[10][6];
-        for (int i = 0; i < vinosRanking10.length; i++) {
+        // Verificar que vinosRanking10 no esté vacío y tenga al menos 10 elementos
+        if (vinosRanking10 == null || vinosRanking10.length == 0) {
+            throw new IllegalArgumentException("La lista de vinos rankeados está vacía o es nula");
+        }
+
+        // Determinar el tamaño de la matriz de salida
+        int size = Math.min(vinosRanking10.length, 10);
+        String[][] datosVinosRankeados = new String[size][8];
+
+        for (int i = 0; i < size; i++) {
             Object[] vinoConRanking = (Object[]) vinosRanking10[i];
             Vino vinoRanking = (Vino) vinoConRanking[0];
-            Double ranking = (Double) vinoConRanking[1];
+            float ranking = (float) vinoConRanking[1];
             String[] datosBodega = vinoRanking.obtenerBodega();
             String[] datosVarietal = vinoRanking.obtenerVarietal();
             float precioVino = vinoRanking.getPrecioARS();
             String nombre = vinoRanking.getNombre();
             float calificacionGeneral = vinoRanking.getCalificacionGeneral();
-            datosVinosRankeados[i] = new String[] { nombre, String.valueOf(ranking),
 
+            // Asegurarse de que datosVarietal y datosBodega tengan suficientes elementos
+            String bodega = datosBodega.length > 0 ? datosBodega[0] : "N/A";
+            String varietal1 = datosVarietal.length > 0 ? datosVarietal[0] : "N/A";
+            String varietal2 = datosVarietal.length > 1 ? datosVarietal[1] : "N/A";
+            String varietal3 = datosVarietal.length > 2 ? datosVarietal[2] : "N/A";
+
+            datosVinosRankeados[i] = new String[] {
+                    nombre,
+                    String.valueOf(ranking),
                     String.valueOf(calificacionGeneral),
-                    String.valueOf(precioVino), datosBodega[0], datosVarietal[0], datosVarietal[1], datosVarietal[2] };
+                    String.valueOf(precioVino),
+                    bodega,
+                    varietal1,
+                    varietal2,
+                    varietal3
+            };
         }
-        // Tiene que retornar la matriz 10 x 8
+
         // Este es el orden de los encabezados
         // "Nombre", "Calificación Sommelier", "Calificación General", "Precio ARS",
         // "Bodega", "Varietal", "Región", "País"
@@ -191,5 +219,10 @@ public class GestorGenerarReporteRankingVino {
 
     public void setEstrategiaElegida(IEstrategia estrategiaElegida) {
         this.estrategiaElegida = estrategiaElegida;
+    }
+
+    // borrar luego de pruebas
+    public List<Vino> obtenerTodosLosVinos() {
+        return this.repositoryVino.findAll();
     }
 }

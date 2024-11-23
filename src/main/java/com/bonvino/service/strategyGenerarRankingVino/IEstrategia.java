@@ -7,7 +7,7 @@ import com.bonvino.repository.RepositoryVino;
 
 public interface IEstrategia {
 
-    public List<Vino> buscarVinosConReseñasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos);
+    public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos);
 
     public Object[] calcularCalificacionesPromedio(Date fechaInicio, Date fechaFin, List<Vino> vinosFiltradosPorResena);
 }

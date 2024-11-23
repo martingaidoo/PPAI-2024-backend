@@ -15,7 +15,7 @@ public class EstrategiaResenaDeSommelier implements IEstrategia {
     // Inyección del repositorio por constructor
 
     @Override
-    public List<Vino> buscarVinosConReseñasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
+    public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
         // Lista temporal para almacenar los vinos con reseñas
         List<Vino> vinosConResena = new ArrayList<>();
 

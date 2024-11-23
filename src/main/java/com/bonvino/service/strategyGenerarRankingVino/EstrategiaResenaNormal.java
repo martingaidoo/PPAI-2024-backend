@@ -20,7 +20,7 @@ public class EstrategiaResenaNormal implements IEstrategia {
     }
 
     @Override
-    public List<Vino> buscarVinosConReseñasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
+    public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
         throw new UnsupportedOperationException("Método no implementado");
     }
 
