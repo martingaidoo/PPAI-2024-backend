@@ -9,17 +9,6 @@ import jakarta.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-/**
- * @description Clase que representa una bodega de vinos
- * @table bodega Tabla en base de datos que almacena las bodegas
- * @id Clave primaria autogenerada
- * @nombre Nombre de la bodega
- * @descripcion Descripción de la bodega
- * @historia Historia de la bodega
- * @periodoActualizacion Período de actualización de los vinos de la bodega
- * @coordenadasUbicacion Coordenadas de la ubicación de la bodega
- * @regionVitivinicola Región vitivinícola a la que pertenece la bodega
- */
 public class Bodega {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Clave primaria autogenerada
