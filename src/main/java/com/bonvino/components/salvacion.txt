@@ -1,0 +1,371 @@
+
+
+"fechaInicio": "2024-11-19"
+"fechaFin": "2024-11-25"
+"tipoReporteSeleccionado": "Resena de sommelier"
+"confirmacionReporte": true
+
+
+
+
+// Asignar reseñas a Vino BioBioRegion1
+                vinoBioBioRegion1.setResenas(
+                                Arrays.asList(reseñaBioBioRegion1_1, reseñaBioBioRegion1_2, reseñaBioBioRegion1_3,
+                                                reseñaBioBioRegion1_4, reseñaBioBioRegion1_5));
+
+                // Asignar reseñas a Vino BioBioRegion2
+                vinoBioBioRegion2.setResenas(
+                                Arrays.asList(reseñaBioBioRegion2_1, reseñaBioBioRegion2_2, reseñaBioBioRegion2_3,
+                                                reseñaBioBioRegion2_4, reseñaBioBioRegion2_5));
+                // Asignar reseñas a Vino SanPedro1
+                vinoSanPedro1.setResenas(Arrays.asList(reseñaSanPedro1_1, reseñaSanPedro1_2, reseñaSanPedro1_3,
+                                reseñaSanPedro1_4, reseñaSanPedro1_5));
+
+
+                // Asignar reseñas a Vino SanPedro2
+                vinoSanPedro2.setResenas(Arrays.asList(reseñaSanPedro2_1, reseñaSanPedro2_2, reseñaSanPedro2_3,
+                                reseñaSanPedro2_4, reseñaSanPedro2_5));
+
+               
+
+
+                // Asignar reseñas a Vino Artigas2
+                vinoArtigas2.setResenas(
+                                Arrays.asList(reseñaArtigas2_1, reseñaArtigas2_2, reseñaArtigas2_3, reseñaArtigas2_4,
+                                                reseñaArtigas2_5));
+
+               
+
+                // Asignar reseñas a Vino CerroLargo1
+                vinoCerroLargo1.setResenas(Arrays.asList(reseñaCerroLargo1_1, reseñaCerroLargo1_2, reseñaCerroLargo1_3,
+                                reseñaCerroLargo1_4, reseñaCerroLargo1_5));
+
+
+                // Asignar reseñas a Vino CerroLargo2
+                vinoCerroLargo2.setResenas(Arrays.asList(reseñaCerroLargo2_1, reseñaCerroLargo2_2, reseñaCerroLargo2_3,
+                                reseñaCerroLargo2_4, reseñaCerroLargo2_5));
+
+               
+
+                // Asignar reseñas a Vino Rivera1
+                vinoRivera1.setResenas(Arrays.asList(reseñaRivera1_1, reseñaRivera1_2, reseñaRivera1_3, reseñaRivera1_4,
+                                reseñaRivera1_5));
+
+
+                // Asignar reseñas a Vino Chincha1
+                vinoChincha1.setResenas(
+                                Arrays.asList(reseñaChincha1_1, reseñaChincha1_2, reseñaChincha1_3, reseñaChincha1_4,
+                                                reseñaChincha1_5));
+
+
+                // Asignar reseñas a Vino Chincha2
+                vinoChincha2.setResenas(
+                                Arrays.asList(reseñaChincha2_1, reseñaChincha2_2, reseñaChincha2_3, reseñaChincha2_4,
+                                                reseñaChincha2_5));
+
+
+                // Asignar reseñas a Vino Nazca1
+                vinoNazca1.setResenas(Arrays.asList(reseñaNazca1_1, reseñaNazca1_2, reseñaNazca1_3, reseñaNazca1_4,
+                                reseñaNazca1_5));
+
+               
+
+                // Asignar reseñas a Vino Nazca2
+                vinoNazca2.setResenas(Arrays.asList(reseñaNazca2_1, reseñaNazca2_2, reseñaNazca2_3, reseñaNazca2_4,
+                                reseñaNazca2_5));
+
+
+                // Asignar reseñas a Vino LimaValley1
+                vinoLimaValley1.setResenas(Arrays.asList(reseñaLimaValley1_1, reseñaLimaValley1_2, reseñaLimaValley1_3,
+                                reseñaLimaValley1_4, reseñaLimaValley1_5));
+
+               
+
+                // Asignar reseñas a Vino LimaValley2
+                vinoLimaValley2.setResenas(Arrays.asList(reseñaLimaValley2_1, reseñaLimaValley2_2, reseñaLimaValley2_3,
+                                reseñaLimaValley2_4, reseñaLimaValley2_5));
+
+
+                // Asignar reseñas a Vino TulumVineyards1
+                vinoTulumVineyards1.setResenas(Arrays.asList(reseñaTulumVineyards1_1, reseñaTulumVineyards1_2,
+                                reseñaTulumVineyards1_3, reseñaTulumVineyards1_4, reseñaTulumVineyards1_5));
+
+               
+
+                // Asignar reseñas a Vino TulumVineyards2
+                vinoTulumVineyards2.setResenas(Arrays.asList(reseñaTulumVineyards2_1, reseñaTulumVineyards2_2,
+                                reseñaTulumVineyards2_3, reseñaTulumVineyards2_4, reseñaTulumVineyards2_5));
+
+
+                // Asignar reseñas a Vino SanJuanVino1
+                vinoSanJuanVino1.setResenas(
+                                Arrays.asList(reseñaSanJuanVino1_1, reseñaSanJuanVino1_2, reseñaSanJuanVino1_3,
+                                                reseñaSanJuanVino1_4, reseñaSanJuanVino1_5));
+
+
+                // Asignar reseñas a Vino SanJuanVino2
+                vinoSanJuanVino2.setResenas(
+                                Arrays.asList(reseñaSanJuanVino2_1, reseñaSanJuanVino2_2, reseñaSanJuanVino2_3,
+                                                reseñaSanJuanVino2_4, reseñaSanJuanVino2_5));
+
+
+                // Asignar reseñas a Vino ZondaVineyards1
+                vinoZondaVineyards1.setResenas(Arrays.asList(reseñaZondaVineyards1_1, reseñaZondaVineyards1_2,
+                                reseñaZondaVineyards1_3, reseñaZondaVineyards1_4, reseñaZondaVineyards1_5));
+
+               
+
+                // Asignar reseñas a Vino ZondaVineyards2
+                vinoZondaVineyards2.setResenas(Arrays.asList(reseñaZondaVineyards2_1, reseñaZondaVineyards2_2,
+                                reseñaZondaVineyards2_3, reseñaZondaVineyards2_4, reseñaZondaVineyards2_5));
+
+               
+
+                // Asignar reseñas a Vino VinoElegante1
+                vinoVinoElegante1.setResenas(
+                                Arrays.asList(reseñaVinoElegante1_1, reseñaVinoElegante1_2, reseñaVinoElegante1_3,
+                                                reseñaVinoElegante1_4, reseñaVinoElegante1_5));
+
+               
+
+                // Asignar reseñas a Vino VinoElegante2
+                vinoVinoElegante2.setResenas(
+                                Arrays.asList(reseñaVinoElegante2_1, reseñaVinoElegante2_2, reseñaVinoElegante2_3,
+                                                reseñaVinoElegante2_4, reseñaVinoElegante2_5));
+
+               
+
+                // Asignar reseñas a Vino PedernalWines1
+                vinoPedernalWines1.setResenas(Arrays.asList(reseñaPedernalWines1_1, reseñaPedernalWines1_2,
+                                reseñaPedernalWines1_3, reseñaPedernalWines1_4, reseñaPedernalWines1_5));
+
+                // 7
+               
+
+                // Asignar reseñas a Vino PedernalWines2
+                vinoPedernalWines2.setResenas(Arrays.asList(reseñaPedernalWines2_1, reseñaPedernalWines2_2,
+                                reseñaPedernalWines2_3, reseñaPedernalWines2_4, reseñaPedernalWines2_5));
+
+               
+
+                // Asignar reseñas a Vino GranPedernal1
+                vinoGranPedernal1.setResenas(
+                                Arrays.asList(reseñaGranPedernal1_1, reseñaGranPedernal1_2, reseñaGranPedernal1_3,
+                                                reseñaGranPedernal1_4, reseñaGranPedernal1_5));
+
+               
+
+                // Asignar reseñas a Vino GranPedernal2
+                vinoGranPedernal2.setResenas(
+                                Arrays.asList(reseñaGranPedernal2_1, reseñaGranPedernal2_2, reseñaGranPedernal2_3,
+                                                reseñaGranPedernal2_4, reseñaGranPedernal2_5));
+
+               
+
+                // Asignar reseñas a Vino Calingasta1
+                vinoCalingasta1.setResenas(Arrays.asList(reseñaCalingasta1_1, reseñaCalingasta1_2, reseñaCalingasta1_3,
+                                reseñaCalingasta1_4, reseñaCalingasta1_5));
+
+               
+
+                // Asignar reseñas a Vino Calingasta2
+                vinoCalingasta2.setResenas(Arrays.asList(reseñaCalingasta2_1, reseñaCalingasta2_2, reseñaCalingasta2_3,
+                                reseñaCalingasta2_4, reseñaCalingasta2_5));
+
+                // 7
+               
+
+                // Asignar reseñas a Vino VallesDeCalingasta1
+                vinoVallesDeCalingasta1
+                                .setResenas(Arrays.asList(reseñaVallesDeCalingasta1_1, reseñaVallesDeCalingasta1_2,
+                                                reseñaVallesDeCalingasta1_3, reseñaVallesDeCalingasta1_4,
+                                                reseñaVallesDeCalingasta1_5));
+
+               
+
+                // Asignar reseñas a Vino VallesDeCalingasta2
+                vinoVallesDeCalingasta2
+                                .setResenas(Arrays.asList(reseñaVallesDeCalingasta2_1, reseñaVallesDeCalingasta2_2,
+                                                reseñaVallesDeCalingasta2_3, reseñaVallesDeCalingasta2_4,
+                                                reseñaVallesDeCalingasta2_5));
+
+               
+
+                // Asignar reseñas a Vino Copiapo1
+                vinoCopiapo1.setResenas(
+                                Arrays.asList(reseñaCopiapo1_1, reseñaCopiapo1_2, reseñaCopiapo1_3, reseñaCopiapo1_4,
+                                                reseñaCopiapo1_5));
+
+
+                // Asignar reseñas a Vino Copiapo2
+                vinoCopiapo2.setResenas(
+                                Arrays.asList(reseñaCopiapo2_1, reseñaCopiapo2_2, reseñaCopiapo2_3, reseñaCopiapo2_4,
+                                                reseñaCopiapo2_5));
+
+
+                // Asignar reseñas a Vino Huasco1
+                vinoHuasco1.setResenas(Arrays.asList(reseñaHuasco1_1, reseñaHuasco1_2, reseñaHuasco1_3, reseñaHuasco1_4,
+                                reseñaHuasco1_5));
+
+               
+
+                // Asignar reseñas a Vino Huasco2
+                vinoHuasco2.setResenas(Arrays.asList(reseñaHuasco2_1, reseñaHuasco2_2, reseñaHuasco2_3, reseñaHuasco2_4,
+                                reseñaHuasco2_5));
+
+                // 8
+
+                // Asignar reseñas a Vino Itata1
+                vinoItata1.setResenas(Arrays.asList(reseñaItata1_1, reseñaItata1_2, reseñaItata1_3, reseñaItata1_4,
+                                reseñaItata1_5));
+
+
+                // Asignar reseñas a Vino Itata2
+                vinoItata2.setResenas(Arrays.asList(reseñaItata2_1, reseñaItata2_2, reseñaItata2_3, reseñaItata2_4,
+                                reseñaItata2_5));
+
+               
+
+                // Asignar reseñas a Vino Maule1
+                vinoMaule1.setResenas(Arrays.asList(reseñaMaule1_1, reseñaMaule1_2, reseñaMaule1_3, reseñaMaule1_4,
+                                reseñaMaule1_5));
+
+
+                // Asignar reseñas a Vino Maule2
+                vinoMaule2.setResenas(Arrays.asList(reseñaMaule2_1, reseñaMaule2_2, reseñaMaule2_3, reseñaMaule2_4,
+                                reseñaMaule2_5));
+
+                // 9
+               
+
+                // Asignar reseñas a Vino Casablanca1
+                vinoCasablanca1.setResenas(Arrays.asList(reseñaCasablanca1_1, reseñaCasablanca1_2, reseñaCasablanca1_3,
+                                reseñaCasablanca1_4, reseñaCasablanca1_5));
+
+               
+
+                // Asignar reseñas a Vino Casablanca2
+                vinoCasablanca2.setResenas(Arrays.asList(reseñaCasablanca2_1, reseñaCasablanca2_2, reseñaCasablanca2_3,
+                                reseñaCasablanca2_4, reseñaCasablanca2_5));
+
+               
+
+                // Asignar reseñas a Vino SanAntonio1
+                vinoSanAntonio1.setResenas(Arrays.asList(reseñaSanAntonio1_1, reseñaSanAntonio1_2, reseñaSanAntonio1_3,
+                                reseñaSanAntonio1_4, reseñaSanAntonio1_5));
+
+               
+
+                // Asignar reseñas a Vino SanAntonio2
+                vinoSanAntonio2.setResenas(Arrays.asList(reseñaSanAntonio2_1, reseñaSanAntonio2_2, reseñaSanAntonio2_3,
+                                reseñaSanAntonio2_4, reseñaSanAntonio2_5));
+
+               
+
+                // Asignar reseñas a Vino ValeDosVinhedos1
+                vinoValeDosVinhedos1.setResenas(Arrays.asList(reseñaValeDosVinhedos1_1, reseñaValeDosVinhedos1_2,
+                                reseñaValeDosVinhedos1_3, reseñaValeDosVinhedos1_4, reseñaValeDosVinhedos1_5));
+
+                // 10
+
+                // Asignar reseñas a Vino ValeDosVinhedos2
+                vinoValeDosVinhedos2.setResenas(Arrays.asList(reseñaValeDosVinhedos2_1, reseñaValeDosVinhedos2_2,
+                                reseñaValeDosVinhedos2_3, reseñaValeDosVinhedos2_4, reseñaValeDosVinhedos2_5));
+
+
+                // Asignar reseñas a Vino SerraGaucha1
+                vinoSerraGaucha1.setResenas(
+                                Arrays.asList(reseñaSerraGaucha1_1, reseñaSerraGaucha1_2, reseñaSerraGaucha1_3,
+                                                reseñaSerraGaucha1_4, reseñaSerraGaucha1_5));
+
+               
+
+                // Asignar reseñas a Vino SerraGaucha2
+                vinoSerraGaucha2.setResenas(
+                                Arrays.asList(reseñaSerraGaucha2_1, reseñaSerraGaucha2_2, reseñaSerraGaucha2_3,
+                                                reseñaSerraGaucha2_4, reseñaSerraGaucha2_5));
+
+
+                // Asignar reseñas a Vino CamposDeCima1
+                vinoCamposDeCima1.setResenas(
+                                Arrays.asList(reseñaCamposDeCima1_1, reseñaCamposDeCima1_2, reseñaCamposDeCima1_3,
+                                                reseñaCamposDeCima1_4, reseñaCamposDeCima1_5));
+
+
+                // Asignar reseñas a Vino CamposDeCima2
+                vinoCamposDeCima2.setResenas(
+                                Arrays.asList(reseñaCamposDeCima2_1, reseñaCamposDeCima2_2, reseñaCamposDeCima2_3,
+                                                reseñaCamposDeCima2_4, reseñaCamposDeCima2_5));
+
+
+                // Asignar reseñas a Vino CanelonesRegion1
+                vinoCanelonesRegion1.setResenas(Arrays.asList(reseñaCanelonesRegion1_1, reseñaCanelonesRegion1_2,
+                                reseñaCanelonesRegion1_3,
+                                reseñaCanelonesRegion1_4, reseñaCanelonesRegion1_5));
+
+
+                // Asignar reseñas a Vino CanelonesRegion2
+                vinoCanelonesRegion2.setResenas(Arrays.asList(reseñaCanelonesRegion2_1, reseñaCanelonesRegion2_2,
+                                reseñaCanelonesRegion2_3, reseñaCanelonesRegion2_4, reseñaCanelonesRegion2_5));
+
+
+                // Asignar reseñas a Vino MontevideoRegion1
+                vinoMontevideoRegion1.setResenas(Arrays.asList(reseñaMontevideoRegion1_1, reseñaMontevideoRegion1_2,
+                                reseñaMontevideoRegion1_3, reseñaMontevideoRegion1_4, reseñaMontevideoRegion1_5));
+
+
+                // Asignar reseñas a Vino MontevideoRegion2
+                vinoMontevideoRegion2.setResenas(Arrays.asList(reseñaMontevideoRegion2_1, reseñaMontevideoRegion2_2,
+                                reseñaMontevideoRegion2_3, reseñaMontevideoRegion2_4, reseñaMontevideoRegion2_5));
+
+
+                // Asignar reseñas a Vino IcaRegion1
+                vinoIcaRegion1.setResenas(Arrays.asList(reseñaIcaRegion1_1, reseñaIcaRegion1_2, reseñaIcaRegion1_3,
+                                reseñaIcaRegion1_4, reseñaIcaRegion1_5));
+
+
+                // Asignar reseñas a Vino IcaRegion2
+                vinoIcaRegion2.setResenas(Arrays.asList(reseñaIcaRegion2_1, reseñaIcaRegion2_2, reseñaIcaRegion2_3,
+                                reseñaIcaRegion2_4, reseñaIcaRegion2_5));
+
+
+                // Asignar reseñas a Vino CuscoRegion1
+                vinoCuscoRegion1.setResenas(Arrays.asList(reseñaCuscoRegion1_1, reseñaCuscoRegion1_2,
+                                reseñaCuscoRegion1_3, reseñaCuscoRegion1_4, reseñaCuscoRegion1_5));
+
+
+                // Asignar reseñas a Vino CuscoRegion2
+                vinoCuscoRegion2.setResenas(Arrays.asList(reseñaCuscoRegion2_1, reseñaCuscoRegion2_2,
+                                reseñaCuscoRegion2_3, reseñaCuscoRegion2_4, reseñaCuscoRegion2_5));
+
+
+                // Asignar reseñas a Vino ValleCalchaqui1
+                vinoValleCalchaqui1.setResenas(Arrays.asList(reseñaValleCalchaqui1_1, reseñaValleCalchaqui1_2,
+                                reseñaValleCalchaqui1_3, reseñaValleCalchaqui1_4, reseñaValleCalchaqui1_5));
+
+
+                // Asignar reseñas a Vino ValleCalchaqui2
+                vinoValleCalchaqui2.setResenas(Arrays.asList(reseñaValleCalchaqui2_1, reseñaValleCalchaqui2_2,
+                                reseñaValleCalchaqui2_3, reseñaValleCalchaqui2_4, reseñaValleCalchaqui2_5));
+
+
+                // Asignar reseñas a Vino Cafayate1
+                vinoCafayate1.setResenas(Arrays.asList(reseñaCafayate1_1, reseñaCafayate1_2, reseñaCafayate1_3,
+                                reseñaCafayate1_4, reseñaCafayate1_5));
+
+
+                // Asignar reseñas a Vino Cafayate2
+                vinoCafayate2.setResenas(Arrays.asList(reseñaCafayate2_1, reseñaCafayate2_2, reseñaCafayate2_3,
+                                reseñaCafayate2_4, reseñaCafayate2_5));
+
+
+                // Asignar reseñas a Vino QuebradaDeHumahuaca1
+                vinoQuebradaDeHumahuaca1.setResenas(Arrays.asList(reseñaQuebradaDeHumahuaca1_1,
+                                reseñaQuebradaDeHumahuaca1_2, reseñaQuebradaDeHumahuaca1_3,
+                                reseñaQuebradaDeHumahuaca1_4, reseñaQuebradaDeHumahuaca1_5));
+
+
+                // Asignar reseñas a Vino QuebradaDeHumahuaca2
+                vinoQuebradaDeHumahuaca2.setResenas(Arrays.asList(reseñaQuebradaDeHumahuaca2_1,
+                                reseñaQuebradaDeHumahuaca2_2, reseñaQuebradaDeHumahuaca2_3,
+                                reseñaQuebradaDeHumahuaca2_4, reseñaQuebradaDeHumahuaca2_5));

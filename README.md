@@ -1,40 +1,44 @@
-# PPAI-2024
+# Proyecto Spring Boot
 
-# Proyecto Practico De Aplicacion Integrador
+Este proyecto utiliza **Spring Boot** con **Maven** como herramienta de construcción. A continuación, se describen los pasos para configurar el entorno y ejecutar la aplicación.
 
-Guia de actividades:
+---
 
+## Requisitos previos
 
+1. **Java 17 o superior** (se recomienda JDK 21):
+   - Descargar e instalar desde [Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) o [OpenJDK](https://openjdk.org/).
+   - **Configurar la variable de entorno `JAVA_HOME`**:
+     1. Ve a las propiedades del sistema (en Windows: `Panel de control > Sistema > Configuración avanzada del sistema`).
+     2. Haz clic en **"Variables de entorno"**.
+     3. Crea una nueva variable de usuario o del sistema llamada `JAVA_HOME`.
+     4. Establece su valor como el directorio donde instalaste el JDK (ejemplo: `C:\Program Files\Java\jdk-21`).
+     5. Edita la variable `Path` y agrega al final: `%JAVA_HOME%\bin`.
+   - Verifica la instalación ejecutando:
+     ```bash
+     java -version
+     ```
 
+2. **Apache Maven** (versión 3.9.9 o superior):
+   - Descargar desde [Maven](https://maven.apache.org/download.cgi).
+   - Descomprimir el archivo descargado en una carpeta, por ejemplo, `C:\apache-maven-3.9.9`.
+   - **Configurar la variable de entorno `MAVEN_HOME`**:
+     1. Crea una nueva variable llamada `MAVEN_HOME` con el valor `C:\apache-maven-3.9.9`.
+     2. Edita la variable `Path` y agrega al final: `%MAVEN_HOME%\bin`.
+   - Verifica la instalación ejecutando:
+     ```bash
+     mvn -v
+     ```
 
-## Run Locally
+3. **Git**:
+   - Instalar desde [Git](https://git-scm.com/) y verifica la instalación ejecutando:
+     ```bash
+     git --version
+     ```
 
-Clone the project
+---
 
-```bash
-  git clone https://github.com/martingaidoo/PPAI-2024-backend
-```
-
-Go to the project directory
-
-```bash
-  cd PPAI-2024-backend
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run start
-```
-
-
-## Authors
+## Autores
 
 - [@Laureano-GR](https://github.com/Laureano-GR)
 
@@ -48,86 +52,7 @@ Start the server
 
 - [@valechiapero](https://github.com/valechiapero)
 
-- [@GonzaGazzero](https://github.com/GonzaGazzero)
-
 - [@fedeeperon](https://github.com/fedeeperon)
 
 - [@martingaidoo](https://github.com/martingaidoo)
 
-
-
-
-
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
