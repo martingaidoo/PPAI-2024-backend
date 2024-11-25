@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import com.bonvino.boundary.PantallaGenerarReporteRankingVino;
 import com.bonvino.boundary.GeneradorArchivoExcel;
 import com.bonvino.dto.GenerarReporteRankingVinoRequest;
 import com.bonvino.service.strategyGenerarRankingVino.EstrategiaResenaDeAmigos;
@@ -104,7 +103,7 @@ public class GestorGenerarReporteRankingVino {
     }
 
     public void tomarConfirmacionReporte(Boolean confirmacionReporte) {
-        this.vinosFiltradosPorResena = this.buscarvinosFiltradosPorResenasPorTipoYEnFecha();
+        this.vinosFiltradosPorResena = this.buscarVinosFiltradosPorResenasPorTipoYEnFecha();
         this.vinosFiltradosPorResenaConPromedio = this.calcularCalificacionesPromedio();
         this.vinosRankeados = this.ordenarVinosPorRanking();
         this.vinosRanking10 = this.tomar10PrimerosVinosCalificados();
@@ -142,9 +141,9 @@ public class GestorGenerarReporteRankingVino {
         return this.estrategiaElegida;
     }
 
-    public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha() {
+    public List<Vino> buscarVinosFiltradosPorResenasPorTipoYEnFecha() {
 
-        return this.estrategiaElegida.buscarvinosFiltradosPorResenasPorTipoYEnFecha(
+        return this.estrategiaElegida.buscarVinosFiltradosPorResenasPorTipoYEnFecha(
                 this.fechaInicio,
                 this.fechaFin, this.todosLosVinos);
 

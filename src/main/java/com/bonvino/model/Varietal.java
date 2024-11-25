@@ -18,4 +18,8 @@ public class Varietal {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Vino vino;
+
+    public String getDescripcion(){
+        return this.descripcion;
+    }
 }
