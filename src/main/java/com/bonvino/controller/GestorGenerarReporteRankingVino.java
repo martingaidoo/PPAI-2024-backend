@@ -7,6 +7,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import com.bonvino.boundary.PantallaGenerarReporteRankingVino;
 import com.bonvino.boundary.GeneradorArchivoExcel;
 import com.bonvino.dto.GenerarReporteRankingVinoRequest;
 import com.bonvino.service.strategyGenerarRankingVino.EstrategiaResenaDeAmigos;
@@ -63,7 +63,7 @@ public class GestorGenerarReporteRankingVino {
     // Atributo puntero a la estrategia elegida
     private IEstrategia estrategiaElegida;
 
-    // @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = "*")
     @PostMapping("/generar-ranking-de-vinos")
     public ResponseEntity<byte[]> opcionGenerarRankingVino(@RequestBody GenerarReporteRankingVinoRequest request) {
         try {
@@ -105,7 +105,7 @@ public class GestorGenerarReporteRankingVino {
     }
 
     public void tomarConfirmacionReporte(Boolean confirmacionReporte) {
-        this.vinosFiltradosPorResena = this.buscarvinosFiltradosPorResenasPorTipoYEnFecha();
+        this.vinosFiltradosPorResena = this.buscarVinosFiltradosPorResenasPorTipoYEnFecha();
         this.vinosFiltradosPorResenaConPromedio = this.calcularCalificacionesPromedio();
         this.vinosRankeados = this.ordenarVinosPorRanking();
         this.vinosRanking10 = this.tomar10PrimerosVinosCalificados();
@@ -143,9 +143,9 @@ public class GestorGenerarReporteRankingVino {
         return this.estrategiaElegida;
     }
 
-    public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha() {
+    public List<Vino> buscarVinosFiltradosPorResenasPorTipoYEnFecha() {
 
-        return this.estrategiaElegida.buscarvinosFiltradosPorResenasPorTipoYEnFecha(
+        return this.estrategiaElegida.buscarVinosFiltradosPorResenasPorTipoYEnFecha(
                 this.fechaInicio,
                 this.fechaFin, this.todosLosVinos);
 

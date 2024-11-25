@@ -18,7 +18,7 @@ public class EstrategiaResenaDeAmigos implements IEstrategia {
     }
 
     @Override
-    public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
+    public List<Vino> buscarVinosFiltradosPorResenasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
         throw new UnsupportedOperationException("Método no implementado");
     }
 }
