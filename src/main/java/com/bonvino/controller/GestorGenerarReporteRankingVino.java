@@ -24,9 +24,10 @@ import com.bonvino.service.strategyGenerarRankingVino.EstrategiaResenaNormal;
 import com.bonvino.service.strategyGenerarRankingVino.IEstrategia;
 import com.bonvino.model.Vino;
 import com.bonvino.repository.RepositoryVino;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.io.IOException;
 
+@CrossOrigin(origins = "*") // Permitir solicitudes desde cualquier origen
 @RestController
 @RequestMapping("/api")
 public class GestorGenerarReporteRankingVino {
@@ -62,6 +63,7 @@ public class GestorGenerarReporteRankingVino {
     // Atributo puntero a la estrategia elegida
     private IEstrategia estrategiaElegida;
 
+    // @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/generar-ranking-de-vinos")
     public ResponseEntity<byte[]> opcionGenerarRankingVino(@RequestBody GenerarReporteRankingVinoRequest request) {
         try {
@@ -158,7 +160,6 @@ public class GestorGenerarReporteRankingVino {
     // promedio y ordenarlos por ranking
     public Object[] ordenarVinosPorRanking() {
 
-        
         // Imprimir el contenido de vinosRanking antes de ordenar
 
         vinosRankeados = this.vinosFiltradosPorResenaConPromedio;
@@ -191,7 +192,6 @@ public class GestorGenerarReporteRankingVino {
 
     public String[][] buscarDatos10MejoresVinos() {
         // Verificar que vinosRanking10 no esté vacío y tenga al menos 10 elementos
-        
 
         // Determinar el tamaño de la matriz de salida
         int size = Math.min(this.vinosRanking10.length, 10);
