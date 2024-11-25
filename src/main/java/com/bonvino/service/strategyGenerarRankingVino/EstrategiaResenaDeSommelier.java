@@ -17,6 +17,12 @@ public class EstrategiaResenaDeSommelier implements IEstrategia {
     @Override
     public List<Vino> buscarvinosFiltradosPorResenasPorTipoYEnFecha(Date fechaInicio, Date fechaFin, List<Vino> vinos) {
         // Lista temporal para almacenar los vinos con reseñas
+        
+        if (vinos == null || vinos.isEmpty()) {
+            throw new IllegalStateException("No entran vinos  ");
+        
+        }
+        
         List<Vino> vinosConResena = new ArrayList<>();
 
         // Obtener todos los vinos del repositorio
@@ -30,6 +36,12 @@ public class EstrategiaResenaDeSommelier implements IEstrategia {
         }
 
         // Convertir la lista a un array y retornarla
+        if (vinosConResena == null || vinosConResena.isEmpty()) {
+            System.out.println(vinosConResena);
+            throw new IllegalStateException("No entran vinos  ");
+                  
+        }
+        
         return vinosConResena;
     }
 

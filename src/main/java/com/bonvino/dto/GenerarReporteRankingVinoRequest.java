@@ -4,6 +4,7 @@ public class GenerarReporteRankingVinoRequest {
     private String fechaInicio;
     private String fechaFin;
     private String tipoReporteSeleccionado;
+    private String tipoVisualizacionSeleccionada;
     private Boolean confirmacionReporte;
 
     public String getFechaInicio() {
@@ -12,6 +13,10 @@ public class GenerarReporteRankingVinoRequest {
 
     public String getFechaFin() {
         return this.fechaFin;
+    }
+
+    public String getTipoVisualizacionSeleccionada() {
+        return this.tipoVisualizacionSeleccionada;
     }
 
     public String getTipoReporteSeleccionado() {

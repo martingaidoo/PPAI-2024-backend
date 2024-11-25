@@ -16,10 +16,6 @@ public class Varietal {
     private String descripcion;
     private float porcentajeComposicion;
 
-    @ManyToOne(targetEntity = Vino.class, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Vino vino;
-
-    public String getDescripcion() {
-        return this.descripcion;
-    }
 }

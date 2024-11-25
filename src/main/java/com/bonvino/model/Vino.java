@@ -1,5 +1,6 @@
 package com.bonvino.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,11 +9,15 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -26,11 +31,14 @@ public class Vino {
     private String nombre;
     private float calificacionGeneral;
     private float precioARS;
-
+    
+    
+    @ToString.Exclude
     @OneToMany(targetEntity = Resena.class, fetch = FetchType.LAZY, mappedBy = "vino")
     private List<Resena> resenas;
 
-    @OneToMany(targetEntity = Varietal.class, fetch = FetchType.LAZY, mappedBy = "vino")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "vino_varietal", joinColumns = @JoinColumn(name = "vino_id"), inverseJoinColumns = @JoinColumn(name = "varietal_id"))
     private List<Varietal> varietal;
 
     @ManyToOne(targetEntity = Bodega.class, fetch = FetchType.LAZY)
@@ -38,7 +46,7 @@ public class Vino {
 
     public Boolean tieneResenaEnFecha(Date fechaInicio, Date fechaFin) {
         for (Resena resena_i : resenas) { // esta variable reseña no tiene sentido, seguramente este vacia, debe buscar
-                                          // todas las reseñas del vino
+                                      // todas las reseñas del vino
             if (resena_i.estaEnPeriodo(fechaInicio, fechaFin)) {
                 if (resena_i.sosDeSommelier()) {
                     return true;
@@ -61,9 +69,10 @@ public class Vino {
     }
 
     public String[] obtenerBodega() {
-        String ubicacion = String.join(", ", bodega.obtenerUbicacion());
-        String[] datosBodega = { bodega.getNombre(), ubicacion };
-        return datosBodega;
+        List<String> datosBodega = new ArrayList<>();
+        datosBodega.add(bodega.getNombre());
+        datosBodega.addAll(bodega.obtenerUbicacion());
+        return datosBodega.toArray(new String[0]);
     }
 
     public String[] obtenerVarietal() {
