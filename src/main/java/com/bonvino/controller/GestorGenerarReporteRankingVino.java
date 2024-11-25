@@ -77,6 +77,11 @@ public class GestorGenerarReporteRankingVino {
         this.estrategiaElegida = crearEstrategia();
     }
 
+    public void tomarFormaVisualizacionReporte(String tipoVisualizacionSeleccionada) {
+        this.tipoVisualizacionSeleccionada = tipoVisualizacionSeleccionada;
+
+    }
+
     public void tomarSeleccionFechasInicioFin(String fechaInicio, String fechaFin) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -189,15 +194,15 @@ public class GestorGenerarReporteRankingVino {
             String varietal2 = datosVarietal.length > 1 ? datosVarietal[1] : "N/A";
             String varietal3 = datosVarietal.length > 2 ? datosVarietal[2] : "N/A";
 
-            datosVinosRankeados[i] = new String[] {
-                    nombre,
-                    String.valueOf(ranking),
-                    String.valueOf(calificacionGeneral),
-                    String.valueOf(precioVino),
-                    bodega,
-                    varietal1,
-                    varietal2,
-                    varietal3
+            datosVinosRankeados[i] = new String[]{
+                nombre,
+                String.valueOf(ranking),
+                String.valueOf(calificacionGeneral),
+                String.valueOf(precioVino),
+                bodega,
+                varietal1,
+                varietal2,
+                varietal3
             };
         }
 

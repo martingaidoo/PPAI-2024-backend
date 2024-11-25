@@ -1,30 +1,24 @@
 package com.bonvino.model;
 
-import java.util.Date;
-import java.util.List;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Vino {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date añada;
     private String nombre;
-    private float calificacionGeneral;
+    private String calificacionGeneral;
     private float precioARS;
 
     @OneToMany(targetEntity = Resena.class, fetch = FetchType.LAZY, mappedBy = "vino")
@@ -61,9 +55,12 @@ public class Vino {
     }
 
     public String[] obtenerBodega() {
-        String ubicacion = String.join(", ", bodega.obtenerUbicacion());
-        String[] datosBodega = { bodega.getNombre(), ubicacion };
-        return datosBodega;
+        String nombreBodega = this.bodega.getNombre();
+        List<String> ubicacionBodega = this.bodega.obtenerUbicacion();
+        List<String> resultado = new ArrayList<>();
+        resultado.add(nombreBodega);
+        resultado.addAll(ubicacionBodega);
+        return resultado.toArray(new String[0]); // Convierte la lista a un array de strings
     }
 
     public String[] obtenerVarietal() {
@@ -92,16 +89,16 @@ public class Vino {
         this.nombre = nombre;
     }
 
-    public float getCalificacionGeneral() {
+    public String getCalificacionGeneral() {
         return calificacionGeneral;
     }
 
-    public void setCalificacionGeneral(float calificacionGeneral) {
+    public void setCalificacionGeneral(String calificacionGeneral) {
         this.calificacionGeneral = calificacionGeneral;
     }
 
     public void setVarietal(List<Varietal> varital) {
-        this.varietal = varital;
+        this.varital = varital;
     }
 
     public void setResenas(List<Resena> resenas) {
