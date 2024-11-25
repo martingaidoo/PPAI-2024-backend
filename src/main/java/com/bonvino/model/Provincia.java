@@ -3,6 +3,7 @@ package com.bonvino.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class Provincia {
     private String nombre;
     @ManyToOne(targetEntity = Pais.class)
     private Pais pais;
+
+    @ToString.Exclude
     @OneToMany(targetEntity = RegionVitivinicola.class, fetch = FetchType.LAZY, mappedBy = "provincia")
     private List<RegionVitivinicola> regionesVitivinicolas;
 
